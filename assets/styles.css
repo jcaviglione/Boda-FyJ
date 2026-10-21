@@ -129,19 +129,17 @@ h2 i,h3 i{font-weight:400;color:#7b896c}
 .hero.has-hero-photo .hero-rule{background:var(--gold)}
 .hero.has-hero-photo:after{border-color:rgba(104,116,90,.35)}
 .scroll-prompt{position:static;margin:25px auto 0;font-size:9px;line-height:1.4}
-.photo-story{background:#eae9dd;padding-top:75px;padding-bottom:65px}
-.photo-story-inner{max-width:470px;margin:0 auto}
-.story-pictures{display:flex;justify-content:center;align-items:flex-start;margin:32px auto 53px;position:relative;min-height:330px;max-width:420px}
-.photo-card{width:50%;margin:0;padding:9px 9px 23px;background:#fffdf5;box-shadow:0 12px 30px rgba(43,48,35,.19)}
-.photo-card-left{transform:rotate(-7deg) translate(17px,16px);z-index:1}
-.photo-card-right{transform:rotate(6deg) translate(-4px,40px);z-index:2}
-.story-photo{display:block;width:100%;height:clamp(205px,62vw,300px);object-fit:cover;filter:grayscale(1)}
-.story-flower{position:absolute;z-index:3;bottom:-32px;right:8%;font-size:56px;color:#a5aa82;transform:rotate(-20deg)}
-.story-word{font:400 clamp(45px,12vw,66px)/1 "Great Vibes",cursive;color:#667454;margin:18px auto 13px}
-.story-definition{font:italic 17px/1.55 "DM Serif Display",Georgia,serif;max-width:320px;color:#6f7467;margin:0 auto}
-.story-divider{font-size:28px;color:#bc9995;margin-top:20px}
+
+/* Sempiterno: foto unica B/N completa, sin crop, overlays ni rotacion. */
+.photo-story {background:radial-gradient(circle at 80% 20%,rgba(220,174,163,.15),transparent 40%),#eeeae0;padding-top:78px;padding-bottom:78px}
+.photo-story-inner {max-width:520px;margin:0 auto}
+.photo-story .story-single-photo {width:min(100%,485px);margin:32px auto 37px;padding:10px 10px 23px;background:#fffdf8;border:1px solid rgba(112,117,91,.14);border-radius:19px;box-shadow:0 15px 34px rgba(56,57,45,.13);transform:none}
+.photo-story .story-single-image {display:block;width:100%;height:auto;object-fit:contain;border-radius:11px;filter:none}
+.story-word {font:400 clamp(48px,12vw,67px)/1.05 "Great Vibes",cursive;letter-spacing:0;color:#687359;margin:17px auto 20px}
+.story-definition {font:italic 17px/1.55 "DM Serif Display",Georgia,serif;max-width:365px;color:#6f7467;margin:0 auto}
+.story-divider {font-size:28px;color:#bc9995;margin-top:26px}
 @media(min-width:730px){.hero{min-height:0!important;padding-bottom:58px}.hero-photo{height:525px}.hero-content{padding-top:30px}}
-@media(max-width:400px){.hero{padding:11px 11px 38px}.hero h1{font-size:72px}.photo-story{padding:65px 24px 58px}.story-pictures{min-height:270px;margin-bottom:36px}.photo-card{padding:7px 7px 18px}.story-photo{height:222px}}
+@media(max-width:400px){.hero{padding:11px 11px 38px}.hero h1{font-size:72px}.photo-story{padding:65px 21px 65px}}
 
 /* V3: delicado y romantico, collage real y una sola firma en cursiva */
 .hero {
@@ -226,10 +224,10 @@ h2 i,h3 i{font-weight:400;color:#7b896c}
 .button,.btn{border-radius:999px!important;letter-spacing:.08em;}
 .rsvp-form input,.rsvp-form select {border-radius:14px!important;}
 .map-illustration{border-radius:42% 42% 22px 22px!important;}
-.photo-card{border-radius:13px!important;overflow:hidden;}
-.photo-card .story-photo{border-radius:7px;}
-.photo-story{background:radial-gradient(circle at 80% 20%,rgba(220,174,163,.15),transparent 40%),#eeeae0;}
-.story-word{color:#687359;}
+
+
+
+
 .sign-off,.sign-off em{font-family:"Great Vibes",cursive!important;font-size:clamp(53px,12vw,81px)!important;font-weight:400!important;letter-spacing:0!important;color:#516046!important;}
 @media(max-width:400px){
   .hero{padding:65px 17px 52px!important;}
@@ -288,63 +286,11 @@ h2 i,h3 i{font-weight:400;color:#7b896c}
 /* Fotos genuinas, nitidas: no aplicar filtros artificiales de rostros ni reemplazos de ropa. */
 .hero-polaroid-one .hero-image { filter:none !important; }
 .hero-polaroid-two .hero-image { filter:grayscale(1) contrast(1.05) !important; }
-.photo-card-left .story-photo { filter:grayscale(1) contrast(1.04) !important; }
-.photo-card-right .story-photo { filter:none !important; }
-.hero-polaroid .hero-image,.photo-card .story-photo { 
+
+
+.hero-polaroid .hero-image { 
  image-rendering:auto; 
  -webkit-backface-visibility:hidden;
  backface-visibility:hidden; 
 }
 .hero-photo-collage .hero-polaroid{ border-radius:17px; }
-.photo-card{ border-radius:16px; }
-
-/* Aprobada: retrato B/N horizontal, sin recorte agresivo ni giro en CSS.
-   Se gira y optimiza como archivo real antes de subirlo. */
-.photo-story .story-pictures {
-  position:relative!important;
-  display:block!important;
-  width:min(100%,420px);
-  max-width:420px;
-  min-height:clamp(270px,77vw,370px)!important;
-  margin:30px auto 22px!important;
-}
-.photo-story .photo-card {
-  position:absolute!important;
-  margin:0!important;
-  box-sizing:border-box;
-  background:#fffdf9;
-  border-radius:15px!important;
-  padding:8px 8px 18px!important;
-  box-shadow:0 15px 34px rgba(56,57,45,.16);
-  overflow:hidden;
-}
-.photo-story .photo-card-left {
-  width:87%!important;
-  left:1%!important;
-  right:auto!important;
-  top:5px!important;
-  transform:rotate(-4deg)!important;
-  z-index:1;
-}
-.photo-story .photo-card-right {
-  width:57%!important;
-  right:0!important;
-  left:auto!important;
-  top:auto!important;
-  bottom:8px!important;
-  transform:rotate(6deg)!important;
-  z-index:2;
-}
-.photo-story .story-photo {
-  display:block!important;
-  width:100%!important;
-  height:auto!important;
-  aspect-ratio:auto!important;
-  object-fit:contain!important;
-  border-radius:9px!important;
-}
-.photo-story .story-flower { z-index:3; }
-@media(max-width:400px){
- .photo-story .story-pictures{min-height:290px!important;}
- .photo-story .photo-card-left{width:88%!important;}
-}

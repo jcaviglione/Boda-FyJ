@@ -1,14 +1,14 @@
-import { wedding } from "./config.js?v=7";
-import { Hero } from "./components/Hero.js?v=7";
-import { Intro } from "./components/Intro.js?v=7";
-import { PhotoStory } from "./components/PhotoStory.js?v=8";
-import { Events } from "./components/Events.js?v=7";
-import { Location } from "./components/Location.js?v=7";
-import { Attire } from "./components/Attire.js?v=7";
-import { Gifts } from "./components/Gifts.js?v=7";
-import { RSVP } from "./components/RSVP.js?v=7";
-import { Memories } from "./components/Memories.js?v=7";
-import { Footer } from "./components/Footer.js?v=7";
+import { wedding } from "./config.js?v=9";
+import { Hero } from "./components/Hero.js?v=9";
+import { Intro } from "./components/Intro.js?v=9";
+import { PhotoStory } from "./components/PhotoStory.js?v=9";
+import { Events } from "./components/Events.js?v=9";
+import { Location } from "./components/Location.js?v=9";
+import { Attire } from "./components/Attire.js?v=9";
+import { Gifts } from "./components/Gifts.js?v=9";
+import { RSVP } from "./components/RSVP.js?v=9";
+import { Memories } from "./components/Memories.js?v=9";
+import { Footer } from "./components/Footer.js?v=9";
 
 const app = document.querySelector("#app");
 const sections = [Hero, Intro, PhotoStory, Events, Location, Attire, Gifts, RSVP, Memories, Footer];
