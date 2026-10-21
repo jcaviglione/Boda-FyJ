@@ -1,7 +1,9 @@
 import { inicio, fecha, mapa, vestimenta, regalos, confirmar, recuerdos, cierre } from "./components.js";
 import { wedding } from "./config.js";
+import { RSVP } from "./components/RSVP.js";
+import { Memories } from "./components/Memories.js";
 
-const sections = [inicio, fecha, mapa, vestimenta, regalos, confirmar, recuerdos, cierre];
+const sections = [inicio, fecha, mapa, vestimenta, regalos, RSVP, Memories, cierre];
 document.querySelector("#app").innerHTML = sections.map(render => render()).join("\n");
 
 const copy = document.querySelector("#copy-alias");
