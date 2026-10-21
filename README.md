@@ -1,36 +1,43 @@
-# Flor & Joel · 27.11.2026
+# Invitación web — Flor & Joel 💍
 
-Invitación digital móvil de la boda de Flor & Joel.
+Boda: **viernes 27 de noviembre de 2026**. Sitio móvil, gratuito y sin dominio propio.
 
-## Estructura
-- `index.html` — entrada GitHub Pages
-- `assets/styles.css` — identidad visual y estilos adaptables
-- `js/main.js` — montaje de secciones e interacciones
-- `js/config.js` — datos centralizados y enlaces configurables
-- `js/components.js` — secciones iniciales
-- `js/components/RSVP.js` — formulario de confirmación por WhatsApp
-- `js/components/Memories.js` — QR para subir recuerdos
-- `js/components/` — componentes independientes en progreso
+## Dónde se publica
 
-## Publicación
-Repositorio público, rama `main`. En GitHub: Settings > Pages > Deploy from a branch > main > /(root) > Save.
-URL prevista: https://jcaviglione.github.io/Boda-FyJ/
+**Repositorio:** https://github.com/jcaviglione/Boda-FyJ  
+**URL prevista tras activar GitHub Pages:** https://jcaviglione.github.io/Boda-FyJ/
 
-## Pendientes para la versión final
-1. Dirección exacta del quincho (almuerzo 14:00).
-2. Confirmaciones preparadas para enviar por WhatsApp al número configurado. El invitado debe tocar Enviar en WhatsApp.
-3. Fecha límite RSVP si se decide mostrar.
-4. Crear una solicitud de archivos gratuita en MEGA y pegar el enlace de carga en `albumUploadUrl`. Los invitados no requieren cuenta. Hacer una carga de prueba desde incógnito antes de imprimir el QR.
-5. Integrar las fotos editadas ya aportadas por la pareja como archivos reales en `assets/`.
-6. Vista previa WhatsApp (imagen social OG); diseño final y prueba móvil.
-7. Comprobar activación de GitHub Pages y el enlace definitivo.
+Para activar Pages una única vez: abrir el repositorio → **Settings** → **Pages** → **Build and deployment** → **Deploy from a branch** → rama **main** → carpeta **/(root)** → **Save**.
 
-### Foto/álbum
-Carpeta de respaldo privada en Google Drive: https://drive.google.com/drive/folders/1mrS7wY6JGmPZfCkOP-VPSXiIgAGQxUM1
+No hay suscripciones, servidores ni claves de terceros para la web.
 
-**Recepción de fotos:** MEGA (File Request), plan gratuito de 20 GB. El enlace aún está pendiente. No confundir enlaces públicos de compartir archivos (lectura) con enlaces de solicitud (subida). Al finalizar, descargar originales y respaldarlos en Drive.
+## Organización
 
-**Privacidad:** no publicar DNI, teléfonos de invitados, listado de invitados ni tokens en archivos públicos. El QR actual conduce a la sección de recuerdos de la web; el botón de subida permanece inactivo hasta asociar el proveedor.
+- `index.html`: documento HTML mínimo.
+- `assets/styles.css`: estilos e identidad visual, mobile-first.
+- `js/config.js`: datos editables (fecha, direcciones, WhatsApp, alias y enlace del álbum).
+- `js/main.js`: monta los componentes y maneja las interacciones.
+- `js/utils.js`: auxiliares.
+- `js/components/`: **Hero, Intro, Events, Location, Attire, Gifts, RSVP, Memories, Footer**.
 
-### RSVP
-Mientras el número de contacto no esté configurado, el formulario prepara el mensaje y abre WhatsApp para elegir el destinatario; no envía ni almacena confirmaciones automáticamente.
+## Funciones
+
+- Portada **Flor & Joel**, fecha y florcitas; usa portada floral de respaldo si no se ha subido foto.
+- Civil: 27/11/2026, 11:00, Chacabuco 737, 2.º piso, Nueva Córdoba, con enlace a Google Maps.
+- Almuerzo: 14:00, **dirección a confirmar**. El botón aparece cuando se configure `lunch.mapsQuery`.
+- Vestimenta: casual elegante de verano.
+- Regalos: alias BODA.FYJ.2026, Banco Galicia; botón para copiar.
+- Confirmación por WhatsApp: se genera el mensaje a **5493516604351**, el invitado debe tocar **Enviar**.
+- QR y botón para fotos: **https://mega.nz/filerequest/XYgfwuTCuYA** (solicitud de archivos, no enlace público de la carpeta).
+- Cuenta regresiva a la ceremonia.
+
+## Pendientes
+
+1. **Fotografías**: subir las tres fotos editadas con los nombres exactos indicados en `js/config.js`:
+   `assets/flor-joel-portada.webp`, `assets/flor-joel-beso.webp`, `assets/flor-joel-byn.webp`. La portada floral funciona sin fotos.
+2. Dirección real del quincho y enlace del mapa.
+3. Probar el enlace de solicitud de MEGA en incógnito desde un celular, con foto y video, antes de imprimir QR.
+4. Opcional: establecer una fecha límite para RSVP.
+5. Verificar GitHub Pages en móvil (Android/iPhone) y la vista previa de WhatsApp.
+
+**Privacidad:** no publicar DNI, lista de invitados, datos de menores ni contraseñas en este repo público. El QR de MEGA sirve únicamente para subir recuerdos; no mostrar el enlace de una carpeta compartida que permita ver fotos.
