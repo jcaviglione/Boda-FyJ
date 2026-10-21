@@ -20,7 +20,7 @@ const gift=read('js/components/Gifts.js');
 const rsvp=read('js/components/RSVP.js');
 const memory=read('js/components/Memories.js');
 ok(html.includes('lang="es-AR"')&&html.includes('name="viewport"'),'mobile HTML + language');
-ok(html.includes('main.js?v=12')&&html.includes('styles.css?v=13'),'entrypoint has updated cache versions');
+ok(html.includes('main.js?v=14')&&html.includes('styles.css?v=14'),'entrypoint has updated cache versions');
 ok(html.includes('og:image')&&html.includes('flor-joel-hero-beso-bn.webp'),'sharing image metadata');
 ok(cfg.includes('2026-11-27T11:00:00-03:00')&&cfg.includes('Chacabuco 737'),'civil date, time and address');
 ok(cfg.includes('time: "14:00"')&&cfg.includes('address: "A confirmar"'),'lunch time, address honestly pending');
@@ -30,19 +30,20 @@ ok(main.includes('window.location.assign(url)')&&main.includes('https://wa.me/')
 ok(css.includes('.rsvp-qty[hidden]{display:none}')&&css.includes('.share-result[hidden]{display:none}'),'rsvp hidden fields remain hidden');
 ok(cfg.includes('https://mega.nz/filerequest/XYgfwuTCuYA')&&memory.includes('albumUploadUrl'),'MEGA file request (not public folder)');
 ok(events.includes('wedding')&&location.includes('Registro Civil')&&location.includes('Almuerzo'),'both timeline stages and map');
-ok(hero.includes('wedding.photos.heroColor')&&hero.includes('wedding.photos.heroMono'),'hero references exactly the two replacement photos');
+ok(hero.includes('wedding.photos.heroSecondary')&&hero.includes('wedding.photos.heroMono'),'hero references exactly the two replacement photos');
 ok((hero.match(/\bimage\(/g)||[]).length===2,'hero displays exactly two photos');
-ok(hero.indexOf('wedding.photos.heroMono')<hero.indexOf('wedding.photos.heroColor'),'B/N main image precedes colored secondary');
+ok(hero.indexOf('wedding.photos.heroMono')<hero.indexOf('wedding.photos.heroSecondary'),'B/N main image precedes colored secondary');
 ok(css.includes('z-index:2')&&css.includes('z-index:1'),'black and white in front of colored photo');
-ok(css.includes('width:75%')&&css.includes('width:77%')&&css.includes('aspect-ratio:0.62'),'both images visible with minimal overlap on phone');
-ok(css.includes('aspect-ratio:0.62')&&css.includes('top:57%')&&css.includes('transform:rotate(-3deg)!important'),'subtle paper tilt and B/N foreground');
+ok(css.includes('width:75%')&&css.includes('width:77%')&&css.includes('aspect-ratio:0.49'),'two portrait photos visible with minimal overlap on phone');
+ok(css.includes('aspect-ratio:0.49')&&css.includes('top:47%')&&css.includes('transform:rotate(-3deg)!important'),'subtle paper tilt and B/N foreground');
 ok(!css.includes('transform:rotate(-9deg)')&&!css.includes('transform:rotate(9deg)'),'no legacy hero picture rotations');
-ok((story.match(/\bimage\(/g)||[]).length===1&&story.includes('wedding.photos.sempiterno'),'Sempiterno contains one approved photo');
-ok(!story.includes('photo-card-right'),'Sempiterno without second overlapping photo');
+ok((story.match(/\bimage\(/g)||[]).length===2&&story.includes('wedding.photos.storyWarm')&&story.includes('wedding.photos.storyMono'),'Sempiterno includes both final photos');
+ok(css.includes('.story-duo-warm')&&css.includes('.story-duo-mono')&&css.includes('object-fit:contain'),'both Sempiterno photos are displayed complete');
 const photoPaths={
-  color:'assets/flor-joel-hero-atardecer-upright.webp',
+  park:'assets/flor-joel-hero-parque-bn-v14.webp',
   mono:'assets/flor-joel-hero-beso-bn.webp',
-  sempiterno:'assets/flor-joel-bn-aprobada.webp',
+  storyWarm:'assets/flor-joel-sempiterno-calida-v14.webp',
+  storyMono:'assets/flor-joel-sempiterno-cerca-bn-v14.webp',
 };
 for(const [k,p] of Object.entries(photoPaths)){
  ok(existsSync(resolve(root,p)),'photo asset exists: '+k);
