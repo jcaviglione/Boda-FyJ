@@ -9,8 +9,8 @@ export function RSVP() {
  '<option value="si">¡Sí, ahí voy!</option><option value="no">Esta vez no puedo</option></select>' +
  '<div class="rsvp-qty" id="rsvp-qty"><label for="adults">Adultos (incluyéndote)</label><select id="adults" name="adults"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>' +
  '<label for="children">Niños</label><select id="children" name="children"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>' +
- '<button type="submit" class="button button-dark button-wide">PREPARAR CONFIRMACIÓN POR WHATSAPP ↗</button>' +
- '<p class="form-help" id="rsvp-help">Se abrirá WhatsApp con el mensaje preparado para Joel. Recordá tocar Enviar para confirmar.</p>' +
+ '<button type="submit" class="button button-dark button-wide">CONFIRMAR POR WHATSAPP ↗</button>' +
+ '<p class="form-help" id="rsvp-help">Al continuar se abrirá WhatsApp. Para finalizar tu confirmación, tocá Enviar.</p>' +
  '</form><div id="rsvp-result" class="share-result" hidden><p id="rsvp-message"></p>' +
  '<a id="rsvp-whatsapp" class="button button-dark" href="#" target="_blank" rel="noopener noreferrer">ABRIR WHATSAPP ↗</a>' +
  '<button id="rsvp-copy" type="button" class="button button-outline">COPIAR MENSAJE</button></div></div></section>';
