@@ -1,4 +1,4 @@
-import { wedding } from "../config.js?v=12";
+import { wedding } from "../config.js?v=14";
 import { image } from "../utils.js";
 
 export function Hero() {
@@ -14,7 +14,7 @@ export function Hero() {
           ${image(wedding.photos.heroMono, "Flor y Joel besándose en blanco y negro, foto principal", "hero-image")}
         </div>
         <div class="hero-polaroid hero-polaroid-two">
-          ${image(wedding.photos.heroColor, "Flor y Joel al atardecer, foto a color enderezada detrás", "hero-image")}
+          ${image(wedding.photos.heroSecondary, "Flor y Joel en el parque, retrato blanco y negro", "hero-image")}
         </div>
       </div>
       <div class="hero-rule"></div>

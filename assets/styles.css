@@ -130,14 +130,17 @@ h2 i,h3 i{font-weight:400;color:#7b896c}
 .hero.has-hero-photo:after{border-color:rgba(104,116,90,.35)}
 .scroll-prompt{position:static;margin:25px auto 0;font-size:9px;line-height:1.4}
 
-/* Sempiterno: foto unica B/N completa, sin crop, overlays ni rotacion. */
-.photo-story {background:radial-gradient(circle at 80% 20%,rgba(220,174,163,.15),transparent 40%),#eeeae0;padding-top:78px;padding-bottom:78px}
-.photo-story-inner {max-width:520px;margin:0 auto}
-.photo-story .story-single-photo {width:min(100%,485px);margin:32px auto 37px;padding:10px 10px 23px;background:#fffdf8;border:1px solid rgba(112,117,91,.14);border-radius:19px;box-shadow:0 15px 34px rgba(56,57,45,.13);transform:none}
-.photo-story .story-single-image {display:block;width:100%;height:auto;object-fit:contain;border-radius:11px;filter:none}
-.story-word {font:400 clamp(48px,12vw,67px)/1.05 "Great Vibes",cursive;letter-spacing:0;color:#687359;margin:17px auto 20px}
-.story-definition {font:italic 17px/1.55 "DM Serif Display",Georgia,serif;max-width:365px;color:#6f7467;margin:0 auto}
-.story-divider {font-size:28px;color:#bc9995;margin-top:26px}
+/* Sempiterno v14: dos fotos visibles, sin cubrir caras. */
+.photo-story{background:radial-gradient(circle at 80% 20%,rgba(220,174,163,.15),transparent 40%),#eeeae0;padding-top:78px;padding-bottom:78px}
+.photo-story-inner{max-width:520px;margin:0 auto}
+.photo-story .story-duo{width:min(100%,485px);margin:32px auto 36px;display:flex;flex-direction:column;align-items:flex-start}
+.photo-story .story-duo-card{position:relative;box-sizing:border-box;margin:0;padding:9px 9px 20px;border:1px solid rgba(112,117,91,.14);border-radius:19px;background:#fffdf8;box-shadow:0 14px 32px rgba(56,57,45,.14)}
+.photo-story .story-duo-warm{width:100%;z-index:1;transform:rotate(-1.5deg)}
+.photo-story .story-duo-mono{width:73%;z-index:2;align-self:flex-end;margin-top:-18px;transform:rotate(1.7deg)}
+.photo-story .story-duo-image{display:block;width:100%;height:auto;object-fit:contain;object-position:center;border-radius:10px;filter:none}
+.story-word{font:400 clamp(48px,12vw,67px)/1.05 "Great Vibes",cursive;letter-spacing:0;color:#687359;margin:17px auto 20px}
+.story-definition{font:italic 17px/1.55 "DM Serif Display",Georgia,serif;max-width:365px;color:#6f7467;margin:0 auto}
+.story-divider{font-size:28px;color:#bc9995;margin-top:26px}
 @media(min-width:730px){.hero{min-height:0!important;padding-bottom:58px}.hero-photo{height:525px}.hero-content{padding-top:30px}}
 @media(max-width:400px){.hero{padding:11px 11px 38px}.hero h1{font-size:72px}.photo-story{padding:65px 21px 65px}}
 
@@ -183,8 +186,8 @@ h2 i,h3 i{font-weight:400;color:#7b896c}
 .hero-photo-collage {
   width:min(100%,410px);
   height:auto;
-  /* Altura suficiente para ver ENTERA la foto a color detras de la B/N. */
-  aspect-ratio:0.62;
+  /* Altura para mostrar dos retratos B/N completos. */
+  aspect-ratio:0.49;
   margin:24px auto 24px;
   position:relative;
   isolation:isolate;
@@ -209,8 +212,8 @@ h2 i,h3 i{font-weight:400;color:#7b896c}
 }
 .hero-photo-collage .hero-polaroid-two {
   z-index:1;
-  /* La color asoma por la derecha y casi toda por abajo: no tapa caras. */
-  top:57%;right:0;left:auto;bottom:auto;
+  /* La foto del parque queda debajo, sin tapar las caras. */
+  top:47%;right:0;left:auto;bottom:auto;
   width:77%;
   transform:rotate(3deg)!important;
 }
@@ -225,7 +228,7 @@ h2 i,h3 i{font-weight:400;color:#7b896c}
   filter:none!important;
 }
 .hero-photo-collage .hero-polaroid-one .hero-image {aspect-ratio:4 / 5}
-.hero-photo-collage .hero-polaroid-two .hero-image {aspect-ratio:4 / 3}
+.hero-photo-collage .hero-polaroid-two .hero-image {aspect-ratio:4 / 5}
 
 .hero-rule{margin:12px auto 9px!important;width:65px!important;background:#bda88c!important;}
 .hero .hero-date,.hero.has-hero-photo .hero-date {

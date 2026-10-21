@@ -29,11 +29,12 @@ export const wedding = Object.freeze({
   albumUploadUrl: "https://mega.nz/filerequest/XYgfwuTCuYA", // Solicitud de archivos gratuita MEGA.
   galleryEnabled: true,
   photos: {
-    // Imagen de Sempiterno aprobada: una sola foto B/N; conservar otras variantes sin publicarlas aqui.
-    heroColor: "assets/flor-joel-hero-atardecer-upright.webp", // Fondo, imagen a color enderezada: personas de pie, 1536x1152
-    heroMono: "assets/flor-joel-hero-beso-bn.webp", // Principal de portada, B/N grande delante, sin rotacion
-
-    sempiterno: "assets/flor-joel-bn-aprobada.webp"
+    // Portada: beso principal B/N y foto del parque secundaria B/N.
+    heroMono: "assets/flor-joel-hero-beso-bn.webp",
+    heroSecondary: "assets/flor-joel-hero-parque-bn-v14.webp",
+    // Sempiterno: las dos ultimas imagenes enviadas.
+    storyWarm: "assets/flor-joel-sempiterno-calida-v14.webp",
+    storyMono: "assets/flor-joel-sempiterno-cerca-bn-v14.webp"
   },
   siteUrl: "https://jcaviglione.github.io/Boda-FyJ/"
 });
