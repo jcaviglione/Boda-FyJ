@@ -1,6 +1,7 @@
 import { wedding } from "./config.js";
 import { Hero } from "./components/Hero.js";
 import { Intro } from "./components/Intro.js";
+import { PhotoStory } from "./components/PhotoStory.js";
 import { Events } from "./components/Events.js";
 import { Location } from "./components/Location.js";
 import { Attire } from "./components/Attire.js";
@@ -10,7 +11,7 @@ import { Memories } from "./components/Memories.js";
 import { Footer } from "./components/Footer.js";
 
 const app = document.querySelector("#app");
-const sections = [Hero, Intro, Events, Location, Attire, Gifts, RSVP, Memories, Footer];
+const sections = [Hero, Intro, PhotoStory, Events, Location, Attire, Gifts, RSVP, Memories, Footer];
 app.innerHTML = sections.map(render => render()).join("\n");
 
 // If the picture has not been uploaded yet, show the floral cover instead of a broken image.
