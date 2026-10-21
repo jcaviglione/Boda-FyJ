@@ -33,8 +33,7 @@ No hay suscripciones, servidores ni claves de terceros para la web.
 
 ## Pendientes
 
-1. **Fotografías**: subir las tres fotos editadas con los nombres exactos indicados en `js/config.js`:
-   `assets/flor-joel-portada.webp`, `assets/flor-joel-beso.webp`, `assets/flor-joel-byn.webp`. La portada floral funciona sin fotos.
+1. **Fotografías cargadas** en `assets/`: `flor-joel-portada.webp` (jardín), `flor-joel-beso.webp`, `flor-joel-byn.webp`. Optimización inicial para móviles; originales conservados.
 2. Dirección real del quincho y enlace del mapa.
 3. Probar el enlace de solicitud de MEGA en incógnito desde un celular, con foto y video, antes de imprimir QR.
 4. Opcional: establecer una fecha límite para RSVP.
