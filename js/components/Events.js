@@ -1,4 +1,4 @@
-import { wedding } from "../config.js?v=7";
+import { wedding } from "../config.js?v=9";
 import { escapeHtml, mapsUrl } from "../utils.js";
 export function Events() {
  const c=wedding.ceremony, l=wedding.lunch, known=Boolean(l.mapsQuery);

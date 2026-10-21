@@ -1,4 +1,4 @@
-import { wedding } from "../config.js?v=7";
+import { wedding } from "../config.js?v=9";
 export function RSVP() {
  return '<section class="rsvp section-pad" id="confirmar"><div data-reveal>' +
  '<div class="deco-glyph" aria-hidden="true">✿</div><div class="eyebrow">Nos encantaría verte</div>' +
