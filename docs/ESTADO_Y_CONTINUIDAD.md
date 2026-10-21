@@ -1,60 +1,17 @@
-# ÚLTIMA CORRECCIÓN · 21/10/2026 · FOTOS SIN TAPARSE
+# Estado de continuidad — Boda Flor & Joel (21 de octubre de 2026)
 
-**Último mensaje del usuario:** la B/N en primer plano estaba TAPANDO DEMASIADO a la de color en la portada (captura Android, 19:05). Se corrigió **directamente en GitHub**: `assets/styles.css`, foto B/N 75 % a la izquierda y delante, foto a color detrás del 77 % que empieza más abajo (top 57 %) en un collage con aspecto 0.62. Se ve casi toda la foto a color sin ocultar las caras. `index.html` CSS `?v=13`. Mantener las fotos derechas. **El usuario NO programa**, siempre editar el repositorio en su nombre, jamás enviarle CSS para pegar. No generar pósters salvo que los pida.
+**ÚLTIMA ORDEN (realizada en GitHub):** En la portada de la miniweb reemplazar la foto a color con la segunda imagen del mensaje del usuario (Flor & Joel en el parque en blanco y negro), **conservando la B/N del beso como principal**. En la hoja «Sempiterno» reemplazar la única foto por **las dos últimas**: fotografía cálida sobre la mesa y primer plano blanco y negro. Respetar posiciones y orientación; no tapar caras ni generar carteles.
 
----
+**Archivos activos:**
+- Portada principal: `assets/flor-joel-hero-beso-bn.webp` (B/N beso).
+- Portada secundaria: `assets/flor-joel-hero-parque-bn-v14.webp` (B/N parque).
+- Sempiterno primera: `assets/flor-joel-sempiterno-calida-v14.webp` (color interior).
+- Sempiterno segunda: `assets/flor-joel-sempiterno-cerca-bn-v14.webp` (B/N primer plano).
 
-# ESTADO ACTUAL · 21/10/2026 · portada corregida en GitHub
+**Código:** `jcaviglione/Boda-FyJ` rama `main`, sitio https://jcaviglione.github.io/Boda-FyJ/ · `js/config.js` · `js/components/Hero.js` · `js/components/PhotoStory.js` · `assets/styles.css`. Archivos son WebP de buena calidad basados en imágenes enviadas por el usuario, sin regeneración. Caché v14, tests `scripts/check-site.mjs`.
 
-**Último pedido FINAL:** en la **primera hoja de la MINIWEB** cambiar la jerarquía: **FOTO BLANCO Y NEGRO COMO PRINCIPAL Y DELANTE**, y foto a color AL FONDO, menor y ligeramente superpuesta. Además la de color aparecía ACOSTADA: se corrigió la orientación de sus píxeles; **ya se ven las caras derechas**. No volver a invertir ambas imágenes ni entregar pósters en lugar de cambiar la web.
+**El usuario NO programa**, por eso siempre editar directamente en GitHub. NO ofrecer CSS para pegar ni pósters. Siempre **Flor & Joel** en cursiva y estilo marfil/verde oliva, floral.
 
-- Sitio: https://jcaviglione.github.io/Boda-FyJ/ · repo `jcaviglione/Boda-FyJ` rama `main`.
-- `Hero.js` principal `wedding.photos.heroMono` B/N y secundaria `wedding.photos.heroColor` color, CSS z-index 2 y 1, marcos inclinados ±3° como fotos de papel.
-- Color **CORREGIDA:** `assets/flor-joel-hero-atardecer-upright.webp` 1536 × 1152. B/N **PRINCIPAL:** `assets/flor-joel-hero-beso-bn.webp` 1229 × 1536.
-- **No cambiar Sempiterno:** su única foto `assets/flor-joel-bn-aprobada.webp` permanece tal cual.
-- Caché index/CSS/JS/Hero/config actualizada a **v12**.
-- Auditoría estática: `scripts/check-site.mjs` y acción GitHub `Wedding site static audit`; faltan prueba visual presencial del celular y prueba de MEGA.
+**Datos del evento:** viernes 27/11/2026, civil 11:00 en Chacabuco 737 2.º piso, Nueva Córdoba, Córdoba; almuerzo 14:00 en quincho, dirección pendiente. Regalos alias BODA.FYJ.2026 (Galicia), RSVP WhatsApp 5493516604351, MEGA File Request https://mega.nz/filerequest/XYgfwuTCuYA. No publicar DNI. Sin mensajes digitales.
 
----
-
-
-
-# Continuidad del proyecto · 21 de octubre de 2026
-
-**Proyecto**: miniweb móvil del casamiento de **Flor & Joel**. Repo `jcaviglione/Boda-FyJ`, rama `main`, publicado por GitHub Pages en https://jcaviglione.github.io/Boda-FyJ/ sin dominio pago.
-
-## Solicitud anterior — YA IMPLEMENTADA
-
-En la captura del usuario, dos fotos se superponían en «Un poquito de nosotros». El usuario pidió explícitamente **solo la foto en blanco y negro** en esa hoja; sacar la selfie en primer plano. Se actualizó `js/components/PhotoStory.js` para renderizar **una única imagen** y `assets/styles.css` para que sea **grande, centrada, sin rotación, sin recortes y sin CSS obsoleto de superposición**. Archivo: `assets/flor-joel-bn-aprobada.webp` (previamente aprobado por el usuario y girado 90° a la derecha). Debajo continúa **«Sempiterno»** y su definición: «Que durará siempre; que, habiendo tenido principio, no tendrá fin».
-
-**NO reintroducir la segunda foto en esa sección.** El collage de portada es una sección diferente y no fue parte de este pedido de corrección.
-
-## Identidad visual
-
-- Nombres siempre **Flor & Joel**, cursiva de verdad, estilo romántico-bohemio.
-- Colores marfil, verde oliva, rosa empolvado y botánica. Más aire, bordes suaves, fotografías cuidadas.
-- El usuario prefiere combinaciones de blanco y negro y tonos cálidos estilo atardecer, sin fotos estiradas/pixeladas.
-- Puede aceptar retoque de ropa, fondo, iluminación si se mantiene la foto original de base, pero exige **aprobación previa**. Ha rechazado ediciones que cambian rostros o poses o inventan otra persona.
-- **No publicar imágenes adicionales antes de que el usuario las apruebe**.
-
-## Información real
-
-- Fecha: **viernes 27/11/2026**.
-- Civil: **11:00**, **Chacabuco 737, 2.º piso, Nueva Córdoba, Córdoba**.
-- Almuerzo: **14:00** en quincho reservado. Dirección exacta aún no disponible.
-- Mapa: ilustración que muestra **Registro Civil → camino → casa/quincho**, y dos direcciones, dejando almuerzo «A confirmar».
-- Código: «Casual elegante de verano»; evitar ropa deportiva.
-- Regalos: Banco Galicia, alias **BODA.FYJ.2026**, titular Joel Alejandro Caviglione.
-- RSVP: **5493516604351** (WhatsApp: se prepara el texto, el invitado pulsa Enviar).
-- Recuerdos: **https://mega.nz/filerequest/XYgfwuTCuYA** (solicitud gratuita de archivos MEGA, sin acceso público al contenido). QR en la web y en las mesas, prueba en incógnito pendiente.
-- Mensajes/dedicatorias digitales: **NO**, se dan personalmente.
-
-## Pasos cuando se retome
-
-1. Primero consultar `README.md`, `js/config.js`, `js/components/PhotoStory.js` y `assets/styles.css` desde el conector GitHub.
-2. Confirmar GitHub Pages y revisar desde el teléfono que Sempiterno muestra **exactamente una foto B/N sin superposición**.
-3. Completar dirección del quincho cuando se consiga, sin alterar las secciones que ya funcionan.
-4. Probar MEGA, RSVP, copiar alias y enlaces de mapa.
-5. Pedir aprobación explícita del usuario antes de subir nuevas imágenes o retocar portada.
-
-**No hace falta crear repositorio, pagar hosting, pasar ZIP ni cambiar de plataforma**. Editar siempre directamente sobre `jcaviglione/Boda-FyJ` en GitHub y mantener componentes independientes.
+**Pendientes:** usuario valide la nueva estética desde teléfono, completar dirección del quincho y verificar carga MEGA / RSVP.

@@ -1,4 +1,4 @@
-import { wedding } from "../config.js?v=9";
+import { wedding } from "../config.js?v=14";
 import { escapeHtml, mapsUrl } from "../utils.js";
 
 export function Location() {
