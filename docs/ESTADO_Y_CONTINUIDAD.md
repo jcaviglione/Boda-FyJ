@@ -1,8 +1,16 @@
+# CONTINUIDAD ACTUALIZADA · Portada y auditoría · 21/10/2026
+
+**Nueva instrucción (última decisión):** se cambiaron las **DOS FOTOS DE LA PRIMERA HOJA DE LA MINIWEB**, no se generó ningún póster. La foto **a color al atardecer** queda como principal (`assets/flor-joel-hero-atardecer.webp`), la del **beso B/N** queda secundaria en la esquina inferior derecha **con superposición leve**, ambas verticales sin rotaciones ni inclinaciones. Ver `js/components/Hero.js`, `js/config.js` y `assets/styles.css`. Corregidas las versiones de caché (CSS v10, main v11, componente Hero v10).
+
+**Auditoría:** ver `docs/AUDITORIA_2026-10-21.md` y `scripts/check-site.mjs`. El botón de RSVP redirige a WhatsApp en el envío del formulario; igual hay enlace alternativo. Probar todavía desde un dispositivo real. Dirección del almuerzo sigue pendiente. **Sempiterno permanece con UNA SOLA FOTO en blanco y negro, NO CAMBIAR.**
+
+---
+
 # Continuidad del proyecto · 21 de octubre de 2026
 
 **Proyecto**: miniweb móvil del casamiento de **Flor & Joel**. Repo `jcaviglione/Boda-FyJ`, rama `main`, publicado por GitHub Pages en https://jcaviglione.github.io/Boda-FyJ/ sin dominio pago.
 
-## Última solicitud — YA IMPLEMENTADA
+## Solicitud anterior — YA IMPLEMENTADA
 
 En la captura del usuario, dos fotos se superponían en «Un poquito de nosotros». El usuario pidió explícitamente **solo la foto en blanco y negro** en esa hoja; sacar la selfie en primer plano. Se actualizó `js/components/PhotoStory.js` para renderizar **una única imagen** y `assets/styles.css` para que sea **grande, centrada, sin rotación, sin recortes y sin CSS obsoleto de superposición**. Archivo: `assets/flor-joel-bn-aprobada.webp` (previamente aprobado por el usuario y girado 90° a la derecha). Debajo continúa **«Sempiterno»** y su definición: «Que durará siempre; que, habiendo tenido principio, no tendrá fin».
 

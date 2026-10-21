@@ -93,8 +93,9 @@ form?.addEventListener("submit", event => {
   if (msg) msg.textContent = confirmationText;
   if (link) link.href = url;
   if (result) result.hidden = false;
-  // Open WhatsApp on click, so the visitor can verify the message before sending.
+  // Open WhatsApp from the form submit gesture; fallback button stays available.
   result?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  try { window.location.assign(url); } catch { /* Fallback: the visible WhatsApp link */ }
 });
 document.querySelector("#rsvp-copy")?.addEventListener("click", async () => {
   try {

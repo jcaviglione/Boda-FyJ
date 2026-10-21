@@ -38,13 +38,15 @@
 - **La sección «Sempiterno» / «Un poquito de nosotros» lleva exactamente UNA foto en blanco y negro**, **sin superposición**, centrada, derecha y a ancho legible.
 - **Archivo aprobado:** `assets/flor-joel-bn-aprobada.webp`; corresponde a `wedding.photos.sempiterno`.
 - **No volver a mostrar `flor-joel-cerca-hq.webp` en Sempiterno**; conservarla como alternativa no visible para posible elección futura.
-- La portada **Hero** conserva por ahora su propio collage (dos fotos distintas), que no se debe confundir con la hoja «Sempiterno».
+- La **primera hoja (Hero)** lleva **exactamente las dos fotos enviadas el 21/10**: a color el atardecer como principal y la del beso B/N ligeramente superpuesta abajo a la derecha. Ambas verticales, sin girar, sin efectos de inclinación. **Sempiterno** sigue con una única foto B/N distinta y no se modificó.
 - Las nuevas ediciones con IA y cambios de fondo, ropa o encuadre necesitan aprobación antes de publicarse; no inventar identidades ajenas.
 
 ## Otros archivos de fotografía guardados
 
-- `assets/flor-joel-color-real.webp`: foto a color usada en portada.
-- `assets/flor-joel-parque-hq.webp`: foto blanco y negro usada en portada.
+- `assets/flor-joel-hero-atardecer.webp`: **foto principal NUEVA de portada**, vertical 1152 × 1536, 163 KB, color, sin girar.
+- `assets/flor-joel-hero-beso-bn.webp`: **foto secundaria NUEVA de portada**, vertical 1229 × 1536, 245 KB, blanco y negro, apenas superpuesta.
+- `assets/flor-joel-color-real.webp`: alternativa histórica, NO usada actualmente.
+- `assets/flor-joel-parque-hq.webp`: alternativa histórica, NO usada actualmente.
 - `assets/flor-joel-beso-bn-real.webp`: alternativa no usada actualmente.
 - `assets/flor-joel-cerca-hq.webp`: alternativa no usada actualmente.
 - `assets/botanica-flor-olivo.webp`: decoración botánica.
@@ -57,4 +59,11 @@
 4. Revisar nuevos retratos **solo cuando el usuario los apruebe**; no reintroducir el collage en Sempiterno.
 5. Opcional: fecha límite para confirmar asistencia, cartelitos QR para las mesas.
 
-**No publicar DNI, lista privada de invitados, claves ni tokens.** Para evitar caché, al cambiar CSS/JS incrementá `?v=N` en `index.html` y mantené sincronizados los importadores de módulos; versión actual: **v9**.
+**No publicar DNI, lista privada de invitados, claves ni tokens.** Para evitar caché, al cambiar CSS/JS incrementá `?v=N` en `index.html` y mantené sincronizados los importadores de módulos; CSS v10, entrada JS v11; Hero y config cargan como v10.
+
+## Auditoría y pruebas automáticas
+
+- Ejecutar `node scripts/check-site.mjs` desde el repositorio (sin instalar paquetes).
+- GitHub Actions: [`.github/workflows/site-audit.yml`](.github/workflows/site-audit.yml), revisión estática en cada push o PR.
+- Informe: [`docs/AUDITORIA_2026-10-21.md`](docs/AUDITORIA_2026-10-21.md).
+- **Pendiente de verificación presencial:** vista real en Android/iOS, confirmación de recepción en WhatsApp y subida de una imagen a MEGA. No confundir pruebas estáticas con pruebas de servicios externos.
