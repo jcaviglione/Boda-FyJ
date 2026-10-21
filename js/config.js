@@ -26,8 +26,8 @@ export const wedding = Object.freeze({
   // Opcional: Argentina con código de país, solo dígitos, por ej. "5493511234567".
   rsvpWhatsapp: "5493516604351",
   rsvpDeadline: "", // Fecha aún no confirmada; no inventarla.
-  albumUploadUrl: "", // URL de solicitud de archivos MEGA (sin cuenta para los invitados).
-  galleryEnabled: false,
+  albumUploadUrl: "https://mega.nz/filerequest/XYgfwuTCuYA", // Solicitud de archivos gratuita MEGA.
+  galleryEnabled: true,
   photos: {
     // Al subir fotos reales, usar estas rutas. Fallback si no están todavía.
     hero: "assets/flor-joel-portada.webp",
