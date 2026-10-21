@@ -29,10 +29,10 @@ export const wedding = Object.freeze({
   albumUploadUrl: "https://mega.nz/filerequest/XYgfwuTCuYA", // Solicitud de archivos gratuita MEGA.
   galleryEnabled: true,
   photos: {
-    // Fotografías ORIGINALES, sin cambios de cara, cuerpo, ropa ni escenarios. Solo giro, corrección tonal y recorte.
+    // Retratos reales y una edición B/N elegida por Flor & Joel; las demás propuestas requieren aprobación.
     hero: "assets/flor-joel-color-real.webp",
     kiss: "assets/flor-joel-parque-hq.webp",
-    portrait: "assets/flor-joel-beso-bn-real.webp",
+    portrait: "assets/flor-joel-bn-aprobada.webp",
     storyClose: "assets/flor-joel-cerca-hq.webp"
   },
   siteUrl: "https://jcaviglione.github.io/Boda-FyJ/"
