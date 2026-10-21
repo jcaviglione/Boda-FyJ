@@ -284,3 +284,16 @@ h2 i,h3 i{font-weight:400;color:#7b896c}
  .route-stop p{font-size:11px}
  .route-actions .button{width:100%}
 }
+
+/* Fotos genuinas, nitidas: no aplicar filtros artificiales de rostros ni reemplazos de ropa. */
+.hero-polaroid-one .hero-image { filter:none !important; }
+.hero-polaroid-two .hero-image { filter:grayscale(1) contrast(1.05) !important; }
+.photo-card-left .story-photo { filter:grayscale(1) contrast(1.04) !important; }
+.photo-card-right .story-photo { filter:none !important; }
+.hero-polaroid .hero-image,.photo-card .story-photo { 
+ image-rendering:auto; 
+ -webkit-backface-visibility:hidden;
+ backface-visibility:hidden; 
+}
+.hero-photo-collage .hero-polaroid{ border-radius:17px; }
+.photo-card{ border-radius:16px; }
