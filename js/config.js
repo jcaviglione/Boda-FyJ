@@ -29,10 +29,11 @@ export const wedding = Object.freeze({
   albumUploadUrl: "https://mega.nz/filerequest/XYgfwuTCuYA", // Solicitud de archivos gratuita MEGA.
   galleryEnabled: true,
   photos: {
-    // Al subir fotos reales, usar estas rutas. Fallback si no están todavía.
-    hero: "assets/flor-joel-portada.webp",
-    kiss: "assets/flor-joel-beso.webp",
-    portrait: "assets/flor-joel-byn.webp"
+    // Fotografías ORIGINALES, sin cambios de cara, cuerpo, ropa ni escenarios. Solo giro, corrección tonal y recorte.
+    hero: "assets/flor-joel-color-real.webp",
+    kiss: "assets/flor-joel-parque-hq.webp",
+    portrait: "assets/flor-joel-beso-bn-real.webp",
+    storyClose: "assets/flor-joel-cerca-hq.webp"
   },
   siteUrl: "https://jcaviglione.github.io/Boda-FyJ/"
 });
