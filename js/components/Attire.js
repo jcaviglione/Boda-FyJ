@@ -1,4 +1,4 @@
-import { sectionHeading } from "../lib/helpers.js";
+import { sectionHeading } from "../utils.js";
 export function Attire() {
  return '<section class="attire section-pad" id="vestimenta"><div data-reveal>' +
  '<div class="deco-glyph" aria-hidden="true">✳</div>' +
