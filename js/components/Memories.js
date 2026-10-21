@@ -1,4 +1,4 @@
-import { wedding } from "../config.js";
+import { wedding } from "../config.js?v=7";
 export function Memories() {
  const enabled=Boolean(wedding.albumUploadUrl);
  return '<section class="memories section-pad" id="recuerdos"><div data-reveal>' +
