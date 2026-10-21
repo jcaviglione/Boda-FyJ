@@ -1,4 +1,4 @@
-import { sectionHeading } from "../lib/helpers.js";
+import { sectionHeading } from "../utils.js";
 export function Intro() {
   return '<section class="intro section-pad" id="nuestro-dia">' +
     '<div class="deco-glyph" aria-hidden="true">✽</div>' +
