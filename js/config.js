@@ -26,7 +26,7 @@ export const wedding = Object.freeze({
   // Opcional: Argentina con código de país, solo dígitos, por ej. "5493511234567".
   rsvpWhatsapp: "5493516604351",
   rsvpDeadline: "", // Fecha aún no confirmada; no inventarla.
-  albumUploadUrl: "", // URL real de WedUploader al autorizar Google Drive.
+  albumUploadUrl: "", // URL de solicitud de archivos MEGA (sin cuenta para los invitados).
   galleryEnabled: false,
   photos: {
     // Al subir fotos reales, usar estas rutas. Fallback si no están todavía.
