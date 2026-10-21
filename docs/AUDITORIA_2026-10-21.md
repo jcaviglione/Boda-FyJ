@@ -6,15 +6,16 @@ Auditoría de **código fuente y recursos versionados** del repositorio `jcavigl
 
 **Importante:** no equivale a un test visual interactivo en Android/iPhone. El despliegue de GitHub Pages debe revisarse por separado; tampoco es posible confirmar entrega real de mensajes por WhatsApp o cargas de MEGA sin utilizar esos servicios.
 
-## Portada (solicitud actual)
+## Portada (decisión más reciente · corrección urgente)
 
-- Color principal: `assets/flor-joel-hero-atardecer.webp` (1152 x 1536 px; 163074 bytes), derivada sin giro de la foto aportada `192715.png`.
-- Blanco y negro secundario: `assets/flor-joel-hero-beso-bn.webp` (1229 x 1536 px; 244968 bytes), derivada sin giro de `192713.png`.
-- Ambas son imágenes realmente verticales, sin dependencia de EXIF, transformadas solo a WebP, sin regenerar personas, caras, pose, ropa ni fondo.
-- Comparación del PNG original y WebP: diferencia absoluta media aprox. **1,31** (color) y **1,24** (B/N) por componente RGB en escala 0–255; preservación muy alta.
-- `Hero.js`: reemplaza las dos fotos viejas (la principal es la cálida y la B/N va superpuesta abajo/derecha). No poster ni imagen compuesta permanente.
-- `styles.css`: foto grande 78 % del ancho del collage; B/N 48 % a la derecha con inicio al 57 % de la altura. Eliminados `rotate(-9deg)` y `rotate(9deg)`; ambos marcos e imágenes usan `transform:none!important`. Encajes respetan proporciones 3:4 y 4:5.
-- `index.html`: caché de CSS v10; entrypoint JS v11, que carga Hero y config v10.
+- **BLANCO Y NEGRO principal, en primer plano**: `assets/flor-joel-hero-beso-bn.webp` (1229 × 1536 px, 244968 bytes), imagen derecha de origen, grande a la izquierda, CSS `z-index:2`.
+- **COLOR secundaria DETRÁS**: `assets/flor-joel-hero-atardecer-upright.webp` (1536 × 1152 px, 197994 bytes), imagen fuente girada en píxeles hasta dejar rostros derechos; CSS `z-index:1`.
+- Esto soluciona un error comprobado en una captura de Android, donde la foto a color figuraba acostada y demasiado protagonista. **No generar póster ni sustituir los rostros**.
+- Los dos marcos tienen ligera inclinación de papel de ±3°, **no rotaciones de 90° en CSS**. Blanco y negro 78 % del ancho; color 63 % atrás, aparece en esquina inferior derecha.
+- `Sempiterno`: otra sección, intacta, con una sola foto B/N distinta.
+- `index.html`: CSS v12 y JS v12; Hero/config usan v12. Metadatos OG priorizan la foto principal B/N.
+- Auditoría automatizada: `scripts/check-site.mjs` con checks de la jerarquía y rutas de las imágenes.
+- **Pendiente**: la prueba visual del móvil y comprobación de cache/red, que no cubre por sí sola un test estático.
 
 ## Otras secciones, datos y servicios
 

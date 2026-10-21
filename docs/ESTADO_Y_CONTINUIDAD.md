@@ -1,10 +1,17 @@
-# CONTINUIDAD ACTUALIZADA · Portada y auditoría · 21/10/2026
+# ESTADO ACTUAL · 21/10/2026 · portada corregida en GitHub
 
-**Nueva instrucción (última decisión):** se cambiaron las **DOS FOTOS DE LA PRIMERA HOJA DE LA MINIWEB**, no se generó ningún póster. La foto **a color al atardecer** queda como principal (`assets/flor-joel-hero-atardecer.webp`), la del **beso B/N** queda secundaria en la esquina inferior derecha **con superposición leve**, ambas verticales sin rotaciones ni inclinaciones. Ver `js/components/Hero.js`, `js/config.js` y `assets/styles.css`. Corregidas las versiones de caché (CSS v10, main v11, componente Hero v10).
+**Último pedido FINAL:** en la **primera hoja de la MINIWEB** cambiar la jerarquía: **FOTO BLANCO Y NEGRO COMO PRINCIPAL Y DELANTE**, y foto a color AL FONDO, menor y ligeramente superpuesta. Además la de color aparecía ACOSTADA: se corrigió la orientación de sus píxeles; **ya se ven las caras derechas**. No volver a invertir ambas imágenes ni entregar pósters en lugar de cambiar la web.
 
-**Auditoría:** ver `docs/AUDITORIA_2026-10-21.md` y `scripts/check-site.mjs`. El botón de RSVP redirige a WhatsApp en el envío del formulario; igual hay enlace alternativo. Probar todavía desde un dispositivo real. Dirección del almuerzo sigue pendiente. **Sempiterno permanece con UNA SOLA FOTO en blanco y negro, NO CAMBIAR.**
+- Sitio: https://jcaviglione.github.io/Boda-FyJ/ · repo `jcaviglione/Boda-FyJ` rama `main`.
+- `Hero.js` principal `wedding.photos.heroMono` B/N y secundaria `wedding.photos.heroColor` color, CSS z-index 2 y 1, marcos inclinados ±3° como fotos de papel.
+- Color **CORREGIDA:** `assets/flor-joel-hero-atardecer-upright.webp` 1536 × 1152. B/N **PRINCIPAL:** `assets/flor-joel-hero-beso-bn.webp` 1229 × 1536.
+- **No cambiar Sempiterno:** su única foto `assets/flor-joel-bn-aprobada.webp` permanece tal cual.
+- Caché index/CSS/JS/Hero/config actualizada a **v12**.
+- Auditoría estática: `scripts/check-site.mjs` y acción GitHub `Wedding site static audit`; faltan prueba visual presencial del celular y prueba de MEGA.
 
 ---
+
+
 
 # Continuidad del proyecto · 21 de octubre de 2026
 

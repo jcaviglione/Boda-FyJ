@@ -32,19 +32,22 @@
 - **Álbum de invitados:** MEGA File Request `https://mega.nz/filerequest/XYgfwuTCuYA`. El QR y botón permiten subir fotos/videos; no mostrar carpeta pública.
 - **Mensajes digitales:** eliminados a pedido de los novios; los saludos son en persona.
 
-## Fotografía y diseño — decisión ACTUAL
+## Fotografía y diseño — portada ACTUAL (21/10/2026)
 
-- Nombres en orden **Flor & Joel**, **enteros en cursiva**. Estética romántica, botánica, marfil, oliva, flores suaves y papel.
-- **La sección «Sempiterno» / «Un poquito de nosotros» lleva exactamente UNA foto en blanco y negro**, **sin superposición**, centrada, derecha y a ancho legible.
-- **Archivo aprobado:** `assets/flor-joel-bn-aprobada.webp`; corresponde a `wedding.photos.sempiterno`.
-- **No volver a mostrar `flor-joel-cerca-hq.webp` en Sempiterno**; conservarla como alternativa no visible para posible elección futura.
-- La **primera hoja (Hero)** lleva **exactamente las dos fotos enviadas el 21/10**: a color el atardecer como principal y la del beso B/N ligeramente superpuesta abajo a la derecha. Ambas verticales, sin girar, sin efectos de inclinación. **Sempiterno** sigue con una única foto B/N distinta y no se modificó.
-- Las nuevas ediciones con IA y cambios de fondo, ropa o encuadre necesitan aprobación antes de publicarse; no inventar identidades ajenas.
+- **Flor & Joel**, ambos nombres en letra cursiva. Estética romántica editorial: marfil, oliva, flores suaves, marcos redondeados.
+- **PORTADA:** una fotografía **B/N del beso como principal, GRANDE y ADELANTE**, más una foto **a color corregida de orientación**, más chica y **DETRÁS**, con ligera superposición.
+- **B/N principal:** `assets/flor-joel-hero-beso-bn.webp` (1229 × 1536 px, foto derecha de origen), `heroMono`.
+- **Color secundaria:** `assets/flor-joel-hero-atardecer-upright.webp` (1536 × 1152 px, rostros ya en orientación correcta mediante rotación de píxeles), `heroColor`.
+- Los marcos se inclinan apenas ±3°, pero el contenido fotográfico **nunca queda acostado**.
+- Se mantienen fotos separadas, **NO subir ni usar un póster generado**.
+- **SEMPITERNO ES OTRA HOJA:** conserva exactamente **UNA foto B/N** aprobada, `assets/flor-joel-bn-aprobada.webp`, completa y sin superposición. No volver a ponerle una segunda imagen.
+- Cambios futuros de rostro, pose, ropa o fondos solo previa aprobación del usuario.
 
 ## Otros archivos de fotografía guardados
 
-- `assets/flor-joel-hero-atardecer.webp`: **foto principal NUEVA de portada**, vertical 1152 × 1536, 163 KB, color, sin girar.
-- `assets/flor-joel-hero-beso-bn.webp`: **foto secundaria NUEVA de portada**, vertical 1229 × 1536, 245 KB, blanco y negro, apenas superpuesta.
+- `assets/flor-joel-hero-atardecer-upright.webp`: **color secundaria trasera actual, corregida para que rostros estén derechos**, 1536 × 1152 px, 198 KB.
+- `assets/flor-joel-hero-beso-bn.webp`: **blanco y negro PRINCIPAL delantero**, 1229 × 1536 px, 245 KB.
+- `assets/flor-joel-hero-atardecer.webp`: versión lateral anterior, archivada, NO se usa.
 - `assets/flor-joel-color-real.webp`: alternativa histórica, NO usada actualmente.
 - `assets/flor-joel-parque-hq.webp`: alternativa histórica, NO usada actualmente.
 - `assets/flor-joel-beso-bn-real.webp`: alternativa no usada actualmente.
@@ -59,7 +62,7 @@
 4. Revisar nuevos retratos **solo cuando el usuario los apruebe**; no reintroducir el collage en Sempiterno.
 5. Opcional: fecha límite para confirmar asistencia, cartelitos QR para las mesas.
 
-**No publicar DNI, lista privada de invitados, claves ni tokens.** Para evitar caché, al cambiar CSS/JS incrementá `?v=N` en `index.html` y mantené sincronizados los importadores de módulos; CSS v10, entrada JS v11; Hero y config cargan como v10.
+**No publicar DNI, lista privada de invitados, claves ni tokens.** Para evitar caché, al cambiar CSS/JS incrementá `?v=N` en `index.html` y mantené sincronizados los importadores de módulos; CSS v12, entrada JS v12; Hero y config cargan como v12.
 
 ## Auditoría y pruebas automáticas
 
