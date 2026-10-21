@@ -297,3 +297,54 @@ h2 i,h3 i{font-weight:400;color:#7b896c}
 }
 .hero-photo-collage .hero-polaroid{ border-radius:17px; }
 .photo-card{ border-radius:16px; }
+
+/* Aprobada: retrato B/N horizontal, sin recorte agresivo ni giro en CSS.
+   Se gira y optimiza como archivo real antes de subirlo. */
+.photo-story .story-pictures {
+  position:relative!important;
+  display:block!important;
+  width:min(100%,420px);
+  max-width:420px;
+  min-height:clamp(270px,77vw,370px)!important;
+  margin:30px auto 22px!important;
+}
+.photo-story .photo-card {
+  position:absolute!important;
+  margin:0!important;
+  box-sizing:border-box;
+  background:#fffdf9;
+  border-radius:15px!important;
+  padding:8px 8px 18px!important;
+  box-shadow:0 15px 34px rgba(56,57,45,.16);
+  overflow:hidden;
+}
+.photo-story .photo-card-left {
+  width:87%!important;
+  left:1%!important;
+  right:auto!important;
+  top:5px!important;
+  transform:rotate(-4deg)!important;
+  z-index:1;
+}
+.photo-story .photo-card-right {
+  width:57%!important;
+  right:0!important;
+  left:auto!important;
+  top:auto!important;
+  bottom:8px!important;
+  transform:rotate(6deg)!important;
+  z-index:2;
+}
+.photo-story .story-photo {
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:auto!important;
+  object-fit:contain!important;
+  border-radius:9px!important;
+}
+.photo-story .story-flower { z-index:3; }
+@media(max-width:400px){
+ .photo-story .story-pictures{min-height:290px!important;}
+ .photo-story .photo-card-left{width:88%!important;}
+}
