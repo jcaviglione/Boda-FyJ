@@ -1,14 +1,14 @@
-import { wedding } from "./config.js";
-import { Hero } from "./components/Hero.js";
-import { Intro } from "./components/Intro.js";
-import { PhotoStory } from "./components/PhotoStory.js";
-import { Events } from "./components/Events.js";
-import { Location } from "./components/Location.js";
-import { Attire } from "./components/Attire.js";
-import { Gifts } from "./components/Gifts.js";
-import { RSVP } from "./components/RSVP.js";
-import { Memories } from "./components/Memories.js";
-import { Footer } from "./components/Footer.js";
+import { wedding } from "./config.js?v=7";
+import { Hero } from "./components/Hero.js?v=7";
+import { Intro } from "./components/Intro.js?v=7";
+import { PhotoStory } from "./components/PhotoStory.js?v=7";
+import { Events } from "./components/Events.js?v=7";
+import { Location } from "./components/Location.js?v=7";
+import { Attire } from "./components/Attire.js?v=7";
+import { Gifts } from "./components/Gifts.js?v=7";
+import { RSVP } from "./components/RSVP.js?v=7";
+import { Memories } from "./components/Memories.js?v=7";
+import { Footer } from "./components/Footer.js?v=7";
 
 const app = document.querySelector("#app");
 const sections = [Hero, Intro, PhotoStory, Events, Location, Attire, Gifts, RSVP, Memories, Footer];
