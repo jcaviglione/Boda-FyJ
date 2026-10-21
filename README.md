@@ -5,11 +5,11 @@
 
 ## Diseño actual (21/10/2026) — cambios publicados en GitHub
 
-- **Portada (Hero):** la foto principal del beso en B/N **permanece** (`assets/flor-joel-hero-beso-bn.webp`). La foto secundaria anterior a color fue **reemplazada** por la foto del parque B/N, **segunda imagen del último mensaje** (`assets/flor-joel-hero-parque-bn-v14.webp`). Son dos fotografías derechas, una principal delante y otra debajo con superposición mínima.
-- **Sempiterno (PhotoStory):** la foto única fue reemplazada por **dos fotos**, las **dos últimas imágenes del mensaje del usuario**: primero la foto cálida de Flor y Joel apoyados en la mesa (`assets/flor-joel-sempiterno-calida-v14.webp`); después el primer plano B/N (`assets/flor-joel-sempiterno-cerca-bn-v14.webp`). No tapar rostros; se muestran ambas completas, como dos polaroids sutilmente escalonadas.
+- **Portada (Hero):** la foto principal del beso en B/N **permanece** (`assets/flor-joel-hero-beso-bn.webp`). La foto secundaria anterior a color fue **reemplazada** por la foto del parque B/N, **segunda imagen del último mensaje** (`assets/flor-joel-hero-parque-bn-v15.webp`). Son dos fotografías derechas, una principal delante y otra debajo con superposición mínima.
+- **Sempiterno (PhotoStory):** la foto única fue reemplazada por **dos fotos**, las **dos últimas imágenes del mensaje del usuario**: primero la foto cálida de Flor y Joel apoyados en la mesa (`assets/flor-joel-sempiterno-calida-v15.webp`); después el primer plano B/N (`assets/flor-joel-sempiterno-cerca-bn-v15.webp`). No tapar rostros; se muestran ambas completas, como dos polaroids sutilmente escalonadas.
 - Nombres **Flor & Joel**, con cursiva, paleta marfil/verde oliva, flores botánicas reales.
 - **No generar pósters**, no redibujar ni cambiar caras. El usuario pide editar y publicar **la miniweb**, y **no programa**. Nunca pedirle pegar CSS o hacer comandos.
-- Actualización de caché en `index.html` v14; imports de componentes v14. Foto ya aprobada de Sempiterno anterior `flor-joel-bn-aprobada.webp` se conserva archivada pero no se muestra.
+- Actualización de caché en `index.html` v15; imports de componentes v15. Foto ya aprobada de Sempiterno anterior `flor-joel-bn-aprobada.webp` se conserva archivada pero no se muestra.
 
 ## Datos del evento
 - Fecha: **viernes 27/11/2026**.
@@ -31,3 +31,10 @@
 4. Otras fotos y cambios de diseño requieren aprobación de Flor & Joel.
 
 Más contexto: `docs/ESTADO_Y_CONTINUIDAD.md`.
+
+## Safari iPhone: adornos SVG y fotos de Sempiterno
+- La captura de los textos enormes era **zoom intencional**: no hay un problema de desborde confirmado, no se cambian títulos ni tamaño general por eso.
+- El asterisco decorativo **✳** era convertido por iOS en un emoji verde. Se reemplazaron también otras florcitas/estrellas de los componentes visibles por **SVG reutilizables**, `decorativeMark` en `js/utils.js`. SVG evita depender de fuentes emoji: utiliza el color rosa/oliva del CSS.
+- En la sección **Sempiterno**, el retrato inferior B/N se centra (`align-self:center`), pasa a **82%** del contenedor y utiliza separación de 14px sin montaje que oculte las caras.
+- Versiones de `index.html`: CSS v15 y entrada JS v15. Los componentes modificados tienen imports v15 y todas las nuevas importaciones de utilidades usan `../utils.js?v=15`.
+- Comprobaciones en `scripts/check-site.mjs`. Continuar editando el repo en GitHub: el usuario **no programa**.

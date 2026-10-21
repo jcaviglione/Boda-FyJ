@@ -136,7 +136,7 @@ h2 i,h3 i{font-weight:400;color:#7b896c}
 .photo-story .story-duo{width:min(100%,485px);margin:32px auto 36px;display:flex;flex-direction:column;align-items:flex-start}
 .photo-story .story-duo-card{position:relative;box-sizing:border-box;margin:0;padding:9px 9px 20px;border:1px solid rgba(112,117,91,.14);border-radius:19px;background:#fffdf8;box-shadow:0 14px 32px rgba(56,57,45,.14)}
 .photo-story .story-duo-warm{width:100%;z-index:1;transform:rotate(-1.5deg)}
-.photo-story .story-duo-mono{width:73%;z-index:2;align-self:flex-end;margin-top:-18px;transform:rotate(1.7deg)}
+.photo-story .story-duo-mono{width:82%;z-index:2;align-self:center;margin:14px auto 0;transform:rotate(1deg)}
 .photo-story .story-duo-image{display:block;width:100%;height:auto;object-fit:contain;object-position:center;border-radius:10px;filter:none}
 .story-word{font:400 clamp(48px,12vw,67px)/1.05 "Great Vibes",cursive;letter-spacing:0;color:#687359;margin:17px auto 20px}
 .story-definition{font:italic 17px/1.55 "DM Serif Display",Georgia,serif;max-width:365px;color:#6f7467;margin:0 auto}
@@ -314,3 +314,13 @@ h2 i,h3 i{font-weight:400;color:#7b896c}
  backface-visibility:hidden; 
 }
 .hero-photo-collage .hero-polaroid{ border-radius:17px; }
+
+/* V15 - Platform-neutral SVG ornaments, identical in iPhone Safari and Android. */
+.deco-svg{display:inline-block;vertical-align:middle;width:31px;height:31px;max-width:100%;color:inherit;overflow:visible;}
+.deco-glyph{line-height:1;}
+.deco-glyph .deco-svg{width:31px;height:31px;}
+.footer-flower .deco-svg{width:29px;height:29px;}
+.event-between .deco-svg{width:29px;height:29px;}
+.event-count .deco-svg{width:16px;height:16px;}
+/* Sempiterno's lower B/N portrait is centered; no negative overlap margin. */
+.photo-story .story-duo-mono{align-self:center;margin-left:auto;margin-right:auto;max-width:100%;}

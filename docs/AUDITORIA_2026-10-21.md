@@ -7,3 +7,7 @@
 **Controles:** `scripts/check-site.mjs` valida cantidad de fotografías, importaciones, presencia y estructura RIFF/WebP, datos de boda, enlaces y versiones. GitHub Actions corre las comprobaciones al hacer push. La validación externa de recepción real en WhatsApp/MEGA, la dirección del quincho y la revisión final de apariencia en celular siguen pendientes.
 
 **Estado:** componentes separados; GitHub Pages publica `main`, nunca pedir al usuario operar Git. Ver `README.md` y `docs/ESTADO_Y_CONTINUIDAD.md`.
+
+## Corrección iOS Safari y centrado, v15
+
+La captura compartida muestra un asterisco decorativo interpretado como emoji verde en iPhone; los textos ampliados se deben a zoom intencional. Se conservó el diseño general. Eliminados caracteres decorativos propensos a emoji y reemplazados por SVG compartidos en Intro, Attire, Events, RSVP, Memories, Footer. Se centra la fotografía B/N inferior de Sempiterno con márgenes horizontales automáticos; se suprime superposición negativa. Nuevas validaciones estáticas se incorporaron al flujo de GitHub Actions. La apariencia exacta en Safari iPhone necesita comprobación real con el teléfono.

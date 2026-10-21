@@ -1,3 +1,13 @@
+# ÚLTIMA CORRECCIÓN: iPhone Safari + Sempiterno (21/10/2026)
+
+- El símbolo decorativo ✳ de vestimenta y del cierre aparecía como emoji verde en iOS. Se sustituyó por un SVG vectorial reutilizable, al igual que otras flores y estrellas decorativas en Intro, Events, RSVP y Memories. Helper: `js/utils.js` → `decorativeMark`; CSS clases `.deco-svg`. Ninguna depende de fuentes emoji.
+- La foto B/N inferior de «Sempiterno» estaba a la derecha. Ahora centrada, 82% del ancho, margen superior 14px y sin superposición.
+- Las capturas enormes del iPhone eran **ZOOM realizado deliberadamente** para mostrar el emoji. No hacer rediseño global por supuesto desborde.
+- Los cambios deben ejecutarse por GitHub y probarse en móvil; NUNCA pedir al usuario que programe ni darle CSS suelto. Sitio: https://jcaviglione.github.io/Boda-FyJ/ . Versión 15 de CSS y entrada JS.
+- Continúa pendiente cargar dirección exacta del quincho y probar upload MEGA. El resto de datos del evento se mantiene.
+
+---
+
 # Estado de continuidad — Boda Flor & Joel (21 de octubre de 2026)
 
 **ÚLTIMA ORDEN (realizada en GitHub):** En la portada de la miniweb reemplazar la foto a color con la segunda imagen del mensaje del usuario (Flor & Joel en el parque en blanco y negro), **conservando la B/N del beso como principal**. En la hoja «Sempiterno» reemplazar la única foto por **las dos últimas**: fotografía cálida sobre la mesa y primer plano blanco y negro. Respetar posiciones y orientación; no tapar caras ni generar carteles.

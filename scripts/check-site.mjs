@@ -13,6 +13,10 @@ const html=read('index.html');
 const main=read('js/main.js');
 const hero=read('js/components/Hero.js');
 const story=read('js/components/PhotoStory.js');
+const attire=read('js/components/Attire.js');
+const footer=read('js/components/Footer.js');
+const intro=read('js/components/Intro.js');
+const utilities=read('js/utils.js');
 const events=read('js/components/Events.js');
 const location=read('js/components/Location.js');
 const css=read('assets/styles.css');
@@ -20,7 +24,7 @@ const gift=read('js/components/Gifts.js');
 const rsvp=read('js/components/RSVP.js');
 const memory=read('js/components/Memories.js');
 ok(html.includes('lang="es-AR"')&&html.includes('name="viewport"'),'mobile HTML + language');
-ok(html.includes('main.js?v=14')&&html.includes('styles.css?v=14'),'entrypoint has updated cache versions');
+ok(html.includes('main.js?v=15')&&html.includes('styles.css?v=15'),'entrypoint has updated cache versions');
 ok(html.includes('og:image')&&html.includes('flor-joel-hero-beso-bn.webp'),'sharing image metadata');
 ok(cfg.includes('2026-11-27T11:00:00-03:00')&&cfg.includes('Chacabuco 737'),'civil date, time and address');
 ok(cfg.includes('time: "14:00"')&&cfg.includes('address: "A confirmar"'),'lunch time, address honestly pending');
@@ -39,6 +43,9 @@ ok(css.includes('aspect-ratio:0.49')&&css.includes('top:47%')&&css.includes('tra
 ok(!css.includes('transform:rotate(-9deg)')&&!css.includes('transform:rotate(9deg)'),'no legacy hero picture rotations');
 ok((story.match(/\bimage\(/g)||[]).length===2&&story.includes('wedding.photos.storyWarm')&&story.includes('wedding.photos.storyMono'),'Sempiterno includes both final photos');
 ok(css.includes('.story-duo-warm')&&css.includes('.story-duo-mono')&&css.includes('object-fit:contain'),'both Sempiterno photos are displayed complete');
+ok(css.includes('align-self:center')&&css.includes('margin:14px auto 0'),'Sempiterno B/N centered on mobile');
+ok(utilities.includes('export function decorativeMark')&&attire.includes('decorativeMark("spark")')&&footer.includes('decorativeMark("spark")'),'vector ornament prevents iPhone emoji');
+ok([attire,footer,intro,events,rsvp,memory].every(s=>!/[✳✽✿✻]/u.test(s)),'no emoji-prone glyphs in UI components');
 const photoPaths={
   park:'assets/flor-joel-hero-parque-bn-v14.webp',
   mono:'assets/flor-joel-hero-beso-bn.webp',

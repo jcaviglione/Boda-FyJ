@@ -1,7 +1,8 @@
 import { wedding } from "../config.js?v=14";
+import { decorativeMark } from "../utils.js?v=15";
 export function RSVP() {
  return '<section class="rsvp section-pad" id="confirmar"><div data-reveal>' +
- '<div class="deco-glyph" aria-hidden="true">✿</div><div class="eyebrow">Nos encantaría verte</div>' +
+ '<div class="deco-glyph" aria-hidden="true">' + decorativeMark("flower") + '</div><div class="eyebrow">Nos encantaría verte</div>' +
  '<h2>¿Nos acompañás?</h2><p class="section-lead">Ayudanos a organizar el almuerzo confirmando si venís.</p>' +
  '<form id="rsvp-form" class="rsvp-form">' +
  '<label for="guest-name">Tu nombre y apellido</label><input id="guest-name" name="name" type="text" maxlength="100" placeholder="¿Cómo te llamás?" autocomplete="name" required>' +

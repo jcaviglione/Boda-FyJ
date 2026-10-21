@@ -1,8 +1,9 @@
 import { wedding } from "../config.js?v=14";
+import { decorativeMark } from "../utils.js?v=15";
 export function Memories() {
  const enabled=Boolean(wedding.albumUploadUrl);
  return '<section class="memories section-pad" id="recuerdos"><div data-reveal>' +
- '<div class="deco-glyph" aria-hidden="true">✿</div><div class="eyebrow">Un recuerdo para siempre</div>' +
+ '<div class="deco-glyph" aria-hidden="true">' + decorativeMark("flower") + '</div><div class="eyebrow">Un recuerdo para siempre</div>' +
  '<h2>Compartí tus <i>fotos</i></h2>' +
  '<p class="section-lead">Queremos guardar esos momentos que solo ustedes van a capturar. El día de la boda escaneá el QR y compartí las fotos y videos que saques.</p>' +
  '<div class="memory-inner"><div class="qr-holder" id="qr-holder" aria-label="Código QR para acceder a la web de Flor y Joel">' +

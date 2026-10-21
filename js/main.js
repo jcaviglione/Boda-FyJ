@@ -1,14 +1,14 @@
 import { wedding } from "./config.js?v=14";
 import { Hero } from "./components/Hero.js?v=14";
-import { Intro } from "./components/Intro.js?v=14";
+import { Intro } from "./components/Intro.js?v=15";
 import { PhotoStory } from "./components/PhotoStory.js?v=14";
-import { Events } from "./components/Events.js?v=14";
+import { Events } from "./components/Events.js?v=15";
 import { Location } from "./components/Location.js?v=14";
-import { Attire } from "./components/Attire.js?v=14";
+import { Attire } from "./components/Attire.js?v=15";
 import { Gifts } from "./components/Gifts.js?v=14";
-import { RSVP } from "./components/RSVP.js?v=14";
-import { Memories } from "./components/Memories.js?v=14";
-import { Footer } from "./components/Footer.js?v=14";
+import { RSVP } from "./components/RSVP.js?v=15";
+import { Memories } from "./components/Memories.js?v=15";
+import { Footer } from "./components/Footer.js?v=15";
 
 const app = document.querySelector("#app");
 const sections = [Hero, Intro, PhotoStory, Events, Location, Attire, Gifts, RSVP, Memories, Footer];
