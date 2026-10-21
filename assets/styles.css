@@ -256,3 +256,31 @@ h2 i,h3 i{font-weight:400;color:#7b896c}
 .photo-story::before,.footer::before {top:auto;bottom:0;left:auto;right:0;transform:rotate(180deg);opacity:.5;}
 .events>* ,.attire>*,.gifts>*,.memories>*,.photo-story>*,.footer>* {position:relative;z-index:1}
 .hero .hero-names {overflow:visible;}
+
+/* Mapa narrativo: Registro Civil -> almuerzo, conservando ambas direcciones. */
+.location{background:linear-gradient(180deg,#f9f5ed,#f3f1e6)!important;}
+.location-inner{max-width:610px!important}
+.wedding-route{
+ position:relative;margin:27px auto 20px;padding:15px 14px 21px;
+ background:#fffdf8;border:1px solid rgba(112,117,91,.18);
+ border-radius:28px;box-shadow:0 14px 36px rgba(75,75,54,.08);
+}
+.route-image{position:relative;width:100%;overflow:hidden;border-radius:21px;background:#f2f0e6;}
+.route-art{display:block;width:100%;height:auto;}
+.route-addresses{display:grid;grid-template-columns:minmax(0,1fr) 25px minmax(0,1fr);gap:8px;align-items:start;text-align:center;padding:19px 5px 0}
+.route-stop{min-width:0}
+.route-stop .route-number{display:inline-block;margin-bottom:10px;color:#b18d91;font:italic 19px "DM Serif Display",serif}
+.route-stop .eyebrow{font-size:10px;letter-spacing:.13em}
+.route-stop h3{font:400 23px/1.1 "DM Serif Display",serif;color:var(--olive);margin:6px 0 8px}
+.route-stop p{font-size:12px;line-height:1.5;margin:0;color:#75766a;overflow-wrap:break-word}
+.route-connector{align-self:center;color:#bca480;font-size:22px}
+.route-footnote{font-size:10px;color:#939186;line-height:1.55;margin:22px auto 0;max-width:340px}
+.route-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center}
+.route-actions .button{min-width:174px}
+@media(max-width:400px){
+ .wedding-route{padding:9px 9px 16px;border-radius:22px;}
+ .route-addresses{grid-template-columns:minmax(0,1fr) 15px minmax(0,1fr);gap:4px}
+ .route-stop h3{font-size:20px}
+ .route-stop p{font-size:11px}
+ .route-actions .button{width:100%}
+}
