@@ -1,5 +1,5 @@
 import { wedding } from "../config.js";
-import { escapeHtml, mapsUrl } from "../lib/helpers.js";
+import { escapeHtml, mapsUrl } from "../utils.js";
 export function Events() {
  const c=wedding.ceremony, l=wedding.lunch, known=Boolean(l.mapsQuery);
  return '<section class="events section-pad" id="eventos"><div data-reveal>' +
