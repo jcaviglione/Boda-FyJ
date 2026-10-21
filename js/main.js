@@ -1,7 +1,7 @@
 import { wedding } from "./config.js?v=7";
 import { Hero } from "./components/Hero.js?v=7";
 import { Intro } from "./components/Intro.js?v=7";
-import { PhotoStory } from "./components/PhotoStory.js?v=7";
+import { PhotoStory } from "./components/PhotoStory.js?v=8";
 import { Events } from "./components/Events.js?v=7";
 import { Location } from "./components/Location.js?v=7";
 import { Attire } from "./components/Attire.js?v=7";
