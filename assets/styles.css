@@ -175,35 +175,53 @@ h2 i,h3 i{font-weight:400;color:#7b896c}
   margin:12px auto 23px;
   text-shadow:none!important;
 }
+
+/* Portada v10: dos FOTOS VERTICALES ORIGINALES sin rotar.
+   La de color domina; B/N se solapa solo en la esquina inferior derecha. */
 .hero-photo-collage {
-  width:min(100%,410px);height:315px;position:relative;margin:22px auto 3px;
-  display:block;
+  width:min(100%,410px);
+  height:auto;
+  aspect-ratio:0.70;
+  position:relative;
+  isolation:isolate;
+  margin:27px auto 18px;
+  overflow:visible;
 }
-.hero-polaroid {
+.hero-photo-collage .hero-polaroid {
   position:absolute;
-  width:54%;height:255px;
-  background:#fffef8;
+  height:auto;
+  padding:8px 8px 19px;
+  box-sizing:border-box;
   border:1px solid #e2dacb;
-  padding:9px 9px 27px;
-  border-radius:12px;
-  box-shadow:0 17px 35px rgba(51,48,36,.17);
+  border-radius:17px;
+  background:#fffef9;
+  box-shadow:0 13px 33px rgba(53,57,46,.19);
+  transform:none!important;
+  overflow:hidden;
 }
-.hero-polaroid-one {left:7%;top:8px;transform:rotate(-9deg);z-index:1;}
-.hero-polaroid-two {right:6%;top:43px;transform:rotate(9deg);z-index:2;}
-.hero-polaroid .hero-image {
-  display:block!important;position:static!important;inset:auto!important;
-  object-fit:cover!important;object-position:center center!important;
-  width:100%!important;height:100%!important;filter:grayscale(1) contrast(1.04);
-  border-radius:7px;
+.hero-photo-collage .hero-polaroid-one {
+  z-index:1;
+  top:0;left:2%;right:auto;bottom:auto;
+  width:78%;
 }
-.hero-photo-tape {
-  width:62px;height:21px;position:absolute;
-  background:rgba(174,184,143,.65);
-  box-shadow:0 2px 5px rgba(40,40,33,.07);z-index:3;
-  clip-path:polygon(3% 5%,98% 0,100% 94%,0 100%);
+.hero-photo-collage .hero-polaroid-two {
+  z-index:2;
+  top:57%;right:1%;left:auto;bottom:auto;
+  width:48%;
 }
-.hero-photo-tape-one{left:4%;top:3px;transform:rotate(-22deg);}
-.hero-photo-tape-two{right:8%;top:31px;transform:rotate(14deg);}
+.hero-photo-collage .hero-polaroid .hero-image {
+  position:static!important;inset:auto!important;
+  display:block!important;
+  width:100%!important;height:auto!important;
+  object-fit:contain!important;object-position:center center!important;
+  border-radius:10px;
+  filter:none!important;
+  transform:none!important;
+  image-rendering:auto;
+}
+.hero-photo-collage .hero-polaroid-one .hero-image {aspect-ratio:3 / 4}
+.hero-photo-collage .hero-polaroid-two .hero-image {aspect-ratio:4 / 5}
+
 .hero-rule{margin:12px auto 9px!important;width:65px!important;background:#bda88c!important;}
 .hero .hero-date,.hero.has-hero-photo .hero-date {
   font:400 24px/1.3 "DM Serif Display",serif;color:#505b43!important;
@@ -232,16 +250,10 @@ h2 i,h3 i{font-weight:400;color:#7b896c}
 @media(max-width:400px){
   .hero{padding:65px 17px 52px!important;}
   .hero .hero-names,.hero.has-hero-photo .hero-names{font-size:clamp(53px,15.8vw,70px)!important;}
-  .hero-photo-collage{height:280px;}
-  .hero-polaroid{height:224px;}
-  .hero-polaroid-one{left:4%;}
-  .hero-polaroid-two{right:4%;}
   .hero-botanical{width:100px;height:145px;}
 }
 @media(min-width:730px) {
   .hero{padding:95px 45px 72px!important;}
-  .hero-photo-collage{height:350px;}
-  .hero-polaroid{height:275px;}
 }
 
 /* Pintura botanica raster, tomada de la referencia aprobada. */

@@ -30,8 +30,9 @@ export const wedding = Object.freeze({
   galleryEnabled: true,
   photos: {
     // Imagen de Sempiterno aprobada: una sola foto B/N; conservar otras variantes sin publicarlas aqui.
-    hero: "assets/flor-joel-color-real.webp",
-    kiss: "assets/flor-joel-parque-hq.webp",
+    heroColor: "assets/flor-joel-hero-atardecer.webp", // Portada: foto a color, vertical y derecha
+    heroMono: "assets/flor-joel-hero-beso-bn.webp", // Portada: B/N superpuesta solo un poco, sin rotar
+
     sempiterno: "assets/flor-joel-bn-aprobada.webp"
   },
   siteUrl: "https://jcaviglione.github.io/Boda-FyJ/"
