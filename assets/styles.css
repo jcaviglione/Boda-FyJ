@@ -245,3 +245,14 @@ h2 i,h3 i{font-weight:400;color:#7b896c}
   .hero-photo-collage{height:350px;}
   .hero-polaroid{height:275px;}
 }
+
+/* Pintura botanica raster, tomada de la referencia aprobada. */
+.events,.location,.attire,.gifts,.rsvp,.memories,.photo-story,.footer {position:relative;isolation:isolate;}
+.events::before,.attire::before,.gifts::before,.memories::before,.photo-story::before,.footer::before {
+  content:"";position:absolute;z-index:0;pointer-events:none;
+  top:8px;left:0;width:126px;height:183px;
+  background:url("../assets/botanica-flor-olivo.webp") left top / contain no-repeat;opacity:.40;
+}
+.photo-story::before,.footer::before {top:auto;bottom:0;left:auto;right:0;transform:rotate(180deg);opacity:.5;}
+.events>* ,.attire>*,.gifts>*,.memories>*,.photo-story>*,.footer>* {position:relative;z-index:1}
+.hero .hero-names {overflow:visible;}
