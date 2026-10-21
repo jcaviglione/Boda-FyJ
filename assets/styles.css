@@ -57,3 +57,18 @@
     @media (prefers-reduced-motion:reduce) {* {scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal {opacity:1;transform:none}}
     @media (max-width:380px) {.hero {padding-left:18px;padding-right:18px}.botanical {width:145px}.hero h1 {font-size:4.7rem}}
   
+.rsvp-form{max-width:390px;margin:24px auto;display:grid;gap:12px;text-align:left;background:white;padding:20px;border:1px solid #cdd1c6}
+.rsvp-form label{font-size:12px;color:#4d5b40;font-weight:bold}
+.rsvp-form input,.rsvp-form select{width:100%;padding:12px;font:inherit;border:1px solid #b9c0ae;background:white;color:#34372f}
+.rsvp-qty{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rsvp-qty label{grid-column:span 1}
+.rsvp-form button{width:100%;margin-top:10px}
+.form-help,.memory-note{font-size:12px;color:#77786b}
+.share-result{max-width:390px;background:#eee;margin:15px auto;padding:15px}
+.share-result[hidden]{display:none}
+.share-result p{overflow-wrap:anywhere}
+.button{display:inline-block;background:#4d5b40;color:white;border:1px solid #4d5b40;padding:13px 19px;text-decoration:none;font-size:12px;margin:5px}
+.button-outline{background:transparent;color:#4d5b40}
+.is-pending{opacity:.65}
+.qr-holder{width:180px;height:180px;padding:10px;margin:20px auto;background:white;border:1px solid #ccc}
+.qr-holder img{width:100%;height:100%}
