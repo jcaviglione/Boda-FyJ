@@ -1,4 +1,4 @@
-import { wedding } from "../config.js";
+import { wedding } from "../config.js?v=7";
 export function Footer(){
  return '<footer class="footer"><div class="eyebrow">27 de noviembre de 2026</div>' +
  '<p class="sign-off">Flor &amp; Joel</p>' +
