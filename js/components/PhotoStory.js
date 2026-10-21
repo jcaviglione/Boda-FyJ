@@ -1,4 +1,4 @@
-import { wedding } from "../config.js?v=7";
+import { wedding } from "../config.js?v=8";
 import { image } from "../utils.js";
 
 export function PhotoStory() {
