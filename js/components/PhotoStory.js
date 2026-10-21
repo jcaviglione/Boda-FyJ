@@ -6,8 +6,8 @@ export function PhotoStory() {
   '<div class="photo-story-inner" data-reveal>' +
   '<div class="eyebrow">Un poquito de nosotros</div>' +
   '<div class="story-pictures">' +
-    '<figure class="photo-card photo-card-left">' + image(wedding.photos.portrait, "Flor y Joel, un recuerdo compartido", "story-photo") + '</figure>' +
-    '<figure class="photo-card photo-card-right">' + image(wedding.photos.kiss, "Flor y Joel dándose un beso", "story-photo") + '</figure>' +
+    '<figure class="photo-card photo-card-left">' + image(wedding.photos.portrait, "Flor y Joel besándose, foto original en blanco y negro", "story-photo") + '</figure>' +
+    '<figure class="photo-card photo-card-right">' + image(wedding.photos.storyClose, "Flor y Joel en un primer plano natural", "story-photo") + '</figure>' +
     '<span class="story-flower" aria-hidden="true">✿</span>' +
   '</div>' +
   '<div class="story-word">Sempiterno</div>' +
