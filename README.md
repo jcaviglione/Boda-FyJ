@@ -1,50 +1,60 @@
-# Invitación web — Flor & Joel 💍
+# Flor & Joel · Invitación web 💍
 
-Boda: **viernes 27 de noviembre de 2026**. Sitio móvil, gratuito y sin dominio propio.
+**Casamiento:** viernes **27 de noviembre de 2026** · Sitio móvil gratuito, publicado en GitHub Pages.
 
-## Dónde se publica
+- **Web:** https://jcaviglione.github.io/Boda-FyJ/
+- **Repositorio:** https://github.com/jcaviglione/Boda-FyJ
+- **Publicación:** rama `main`, directorio `/(root)` mediante GitHub Pages.
+- **Para continuar en otro chat, leer primero:** [docs/ESTADO_Y_CONTINUIDAD.md](docs/ESTADO_Y_CONTINUIDAD.md)
 
-**Repositorio:** https://github.com/jcaviglione/Boda-FyJ  
-**Web pública en GitHub Pages:** https://jcaviglione.github.io/Boda-FyJ/
+## Arquitectura
 
-Para activar Pages una única vez: abrir el repositorio → **Settings** → **Pages** → **Build and deployment** → **Deploy from a branch** → rama **main** → carpeta **/(root)** → **Save**.
+| Ruta | Función |
+| --- | --- |
+| `index.html` | Página de entrada, Google Fonts, CSS y módulo principal |
+| `assets/styles.css` | Diseño mobile-first, color marfil, verde oliva, botánica y bordes suaves |
+| `assets/*.webp` | Fotos y adornos; preservar imágenes originales/alternativas para evaluar |
+| `js/config.js` | Única fuente para fecha, direcciones, regalo, WhatsApp y fotos visibles |
+| `js/main.js` | Montaje e interactividad (cuenta regresiva, alias, asistencia) |
+| `js/utils.js` | Utilidades reutilizables |
+| `js/components/` | Hero, Intro, **PhotoStory**, Events, Location, Attire, Gifts, RSVP, Memories, Footer |
 
-No hay suscripciones, servidores ni claves de terceros para la web.
+**Mantener componentes separados; no regresar a un archivo monolítico.**
 
-## Organización
+## Datos del evento
 
-- `index.html`: documento HTML mínimo.
-- `assets/styles.css`: estilos e identidad visual, mobile-first.
-- `js/config.js`: datos editables (fecha, direcciones, WhatsApp, alias y enlace del álbum).
-- `js/main.js`: monta los componentes y maneja las interacciones.
-- `js/utils.js`: auxiliares.
-- `js/components/`: **Hero, Intro, Events, Location, Attire, Gifts, RSVP, Memories, Footer**.
+- **Civil:** viernes 27/11/2026, **11:00**, Chacabuco 737, 2.º piso, Nueva Córdoba, Córdoba.
+- **Almuerzo:** **14:00**, quincho reservado, **dirección pendiente**. No inventar dirección ni trayecto real.
+- **Mapita:** edificio del Registro Civil → camino ilustrado → quincho/casa de campo; dos hitos con horarios y direcciones.
+- **Vestimenta:** casual elegante de verano.
+- **Regalos:** Banco Galicia; alias `BODA.FYJ.2026`, titular Joel Alejandro Caviglione.
+- **RSVP:** WhatsApp `5493516604351`. No hay base de datos: el invitado debe pulsar **Enviar** en WhatsApp.
+- **Álbum de invitados:** MEGA File Request `https://mega.nz/filerequest/XYgfwuTCuYA`. El QR y botón permiten subir fotos/videos; no mostrar carpeta pública.
+- **Mensajes digitales:** eliminados a pedido de los novios; los saludos son en persona.
 
-## Funciones
+## Fotografía y diseño — decisión ACTUAL
 
-- Portada **Flor & Joel** en cursiva, collage de dos fotos reales (una a color cálido y otra en blanco y negro), fecha y ornamentación floral. La sección **Sempiterno** muestra otras dos fotografías diferentes.
-- Civil: 27/11/2026, 11:00, Chacabuco 737, 2.º piso, Nueva Córdoba, con enlace a Google Maps.
-- Almuerzo: 14:00, **dirección a confirmar**. El botón aparece cuando se configure `lunch.mapsQuery`.
-- Vestimenta: casual elegante de verano.
-- Regalos: alias BODA.FYJ.2026, Banco Galicia; botón para copiar.
-- Confirmación por WhatsApp: se genera el mensaje a **5493516604351**, el invitado debe tocar **Enviar**.
-- QR y botón para fotos: **https://mega.nz/filerequest/XYgfwuTCuYA** (solicitud de archivos, no enlace público de la carpeta).
-- Cuenta regresiva a la ceremonia.
+- Nombres en orden **Flor & Joel**, **enteros en cursiva**. Estética romántica, botánica, marfil, oliva, flores suaves y papel.
+- **La sección «Sempiterno» / «Un poquito de nosotros» lleva exactamente UNA foto en blanco y negro**, **sin superposición**, centrada, derecha y a ancho legible.
+- **Archivo aprobado:** `assets/flor-joel-bn-aprobada.webp`; corresponde a `wedding.photos.sempiterno`.
+- **No volver a mostrar `flor-joel-cerca-hq.webp` en Sempiterno**; conservarla como alternativa no visible para posible elección futura.
+- La portada **Hero** conserva por ahora su propio collage (dos fotos distintas), que no se debe confundir con la hoja «Sempiterno».
+- Las nuevas ediciones con IA y cambios de fondo, ropa o encuadre necesitan aprobación antes de publicarse; no inventar identidades ajenas.
 
-## Fotografías verdaderas, nueva versión
+## Otros archivos de fotografía guardados
 
-Todas salen de archivos originales aportados por Flor & Joel. **No hay generación ni reemplazo de caras, ropa, cuerpos o escenarios**. Solo se enderezaron, recortaron y ajustaron contraste/luminosidad; dos se pasaron a blanco y negro.
-
-- `assets/flor-joel-color-real.webp` — 922 × 1152 px, retrato bajo el sol.
-- `assets/flor-joel-parque-hq.webp` — 640 × 800 px, beso en el parque en B/N.
-- `assets/flor-joel-beso-bn-real.webp` — 922 × 1152 px, beso en B/N.
-- `assets/flor-joel-cerca-hq.webp` — 720 × 900 px, primer plano natural en color.
+- `assets/flor-joel-color-real.webp`: foto a color usada en portada.
+- `assets/flor-joel-parque-hq.webp`: foto blanco y negro usada en portada.
+- `assets/flor-joel-beso-bn-real.webp`: alternativa no usada actualmente.
+- `assets/flor-joel-cerca-hq.webp`: alternativa no usada actualmente.
+- `assets/botanica-flor-olivo.webp`: decoración botánica.
 
 ## Pendientes
 
-1. Dirección real del quincho y enlace de Google Maps.
-2. Probar subida a MEGA en incógnito y el QR antes de imprimir.
-3. Opcional: fecha límite de asistencia.
-4. Revisar diseño y flujos finales en Android y iPhone.
+1. Obtener dirección del quincho y actualizar en `js/config.js` `lunch.address`, `lunch.area` y `lunch.mapsQuery`.
+2. Probar MEGA y el QR en un celular en incógnito con una foto y un video.
+3. Revisar la web en Android/iPhone: fotos, links, estilos, alias y confirmación vía WhatsApp.
+4. Revisar nuevos retratos **solo cuando el usuario los apruebe**; no reintroducir el collage en Sempiterno.
+5. Opcional: fecha límite para confirmar asistencia, cartelitos QR para las mesas.
 
-**Privacidad:** no publicar DNI, lista de invitados, datos de menores ni contraseñas en este repo público. El QR de MEGA sirve únicamente para subir recuerdos; no mostrar el enlace de una carpeta compartida que permita ver fotos.
+**No publicar DNI, lista privada de invitados, claves ni tokens.** Para evitar caché, al cambiar CSS/JS incrementá `?v=N` en `index.html` y mantené sincronizados los importadores de módulos; versión actual: **v9**.
