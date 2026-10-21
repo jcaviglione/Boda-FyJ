@@ -176,51 +176,54 @@ h2 i,h3 i{font-weight:400;color:#7b896c}
   text-shadow:none!important;
 }
 
-/* Portada v10: dos FOTOS VERTICALES ORIGINALES sin rotar.
-   La de color domina; B/N se solapa solo en la esquina inferior derecha. */
+
+/* Portada v12: B/N protagonista; color enderezada al fondo.
+   Imagenes sin rotacion de 90 grados en CSS: pixels orientados correctamente.
+   Leves inclinaciones de papel editorial, no de la escena. */
 .hero-photo-collage {
   width:min(100%,410px);
   height:auto;
-  aspect-ratio:0.70;
+  aspect-ratio:0.73;
+  margin:24px auto 19px;
   position:relative;
   isolation:isolate;
-  margin:27px auto 18px;
   overflow:visible;
 }
 .hero-photo-collage .hero-polaroid {
   position:absolute;
+  box-sizing:border-box;
   height:auto;
   padding:8px 8px 19px;
-  box-sizing:border-box;
   border:1px solid #e2dacb;
-  border-radius:17px;
-  background:#fffef9;
-  box-shadow:0 13px 33px rgba(53,57,46,.19);
-  transform:none!important;
+  border-radius:18px;
+  background:#fffdf8;
+  box-shadow:0 13px 32px rgba(48,49,36,.17);
   overflow:hidden;
 }
 .hero-photo-collage .hero-polaroid-one {
-  z-index:1;
+  z-index:2;
   top:0;left:2%;right:auto;bottom:auto;
   width:78%;
+  transform:rotate(-3deg)!important;
 }
 .hero-photo-collage .hero-polaroid-two {
-  z-index:2;
-  top:57%;right:1%;left:auto;bottom:auto;
-  width:48%;
+  z-index:1;
+  top:57%;right:0;left:auto;bottom:auto;
+  width:63%;
+  transform:rotate(3deg)!important;
 }
 .hero-photo-collage .hero-polaroid .hero-image {
-  position:static!important;inset:auto!important;
+  position:static!important;
   display:block!important;
   width:100%!important;height:auto!important;
-  object-fit:contain!important;object-position:center center!important;
+  object-fit:cover!important;object-position:center center!important;
   border-radius:10px;
-  filter:none!important;
-  transform:none!important;
   image-rendering:auto;
+  transform:none!important;
+  filter:none!important;
 }
-.hero-photo-collage .hero-polaroid-one .hero-image {aspect-ratio:3 / 4}
-.hero-photo-collage .hero-polaroid-two .hero-image {aspect-ratio:4 / 5}
+.hero-photo-collage .hero-polaroid-one .hero-image {aspect-ratio:4 / 5}
+.hero-photo-collage .hero-polaroid-two .hero-image {aspect-ratio:4 / 3}
 
 .hero-rule{margin:12px auto 9px!important;width:65px!important;background:#bda88c!important;}
 .hero .hero-date,.hero.has-hero-photo .hero-date {

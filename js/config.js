@@ -30,8 +30,8 @@ export const wedding = Object.freeze({
   galleryEnabled: true,
   photos: {
     // Imagen de Sempiterno aprobada: una sola foto B/N; conservar otras variantes sin publicarlas aqui.
-    heroColor: "assets/flor-joel-hero-atardecer.webp", // Portada: foto a color, vertical y derecha
-    heroMono: "assets/flor-joel-hero-beso-bn.webp", // Portada: B/N superpuesta solo un poco, sin rotar
+    heroColor: "assets/flor-joel-hero-atardecer-upright.webp", // Fondo, imagen a color enderezada: personas de pie, 1536x1152
+    heroMono: "assets/flor-joel-hero-beso-bn.webp", // Principal de portada, B/N grande delante, sin rotacion
 
     sempiterno: "assets/flor-joel-bn-aprobada.webp"
   },

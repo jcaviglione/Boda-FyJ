@@ -1,5 +1,5 @@
-import { wedding } from "./config.js?v=10";
-import { Hero } from "./components/Hero.js?v=10";
+import { wedding } from "./config.js?v=12";
+import { Hero } from "./components/Hero.js?v=12";
 import { Intro } from "./components/Intro.js?v=9";
 import { PhotoStory } from "./components/PhotoStory.js?v=9";
 import { Events } from "./components/Events.js?v=9";
