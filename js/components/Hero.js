@@ -1,5 +1,5 @@
 import { wedding } from "../config.js";
-import { flower, image } from "../lib/helpers.js";
+import { flower, image } from "../utils.js";
 export function Hero() {
   return '<header class="hero" id="inicio">' +
     '<div class="hero-photo photo-wrap">' + image(wedding.photos.hero, "Flor y Joel, retrato juntos", "hero-image") +
