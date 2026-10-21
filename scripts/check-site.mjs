@@ -20,7 +20,7 @@ const gift=read('js/components/Gifts.js');
 const rsvp=read('js/components/RSVP.js');
 const memory=read('js/components/Memories.js');
 ok(html.includes('lang="es-AR"')&&html.includes('name="viewport"'),'mobile HTML + language');
-ok(html.includes('main.js?v=12')&&html.includes('styles.css?v=12'),'entrypoint has updated cache versions');
+ok(html.includes('main.js?v=12')&&html.includes('styles.css?v=13'),'entrypoint has updated cache versions');
 ok(html.includes('og:image')&&html.includes('flor-joel-hero-beso-bn.webp'),'sharing image metadata');
 ok(cfg.includes('2026-11-27T11:00:00-03:00')&&cfg.includes('Chacabuco 737'),'civil date, time and address');
 ok(cfg.includes('time: "14:00"')&&cfg.includes('address: "A confirmar"'),'lunch time, address honestly pending');
@@ -34,7 +34,8 @@ ok(hero.includes('wedding.photos.heroColor')&&hero.includes('wedding.photos.hero
 ok((hero.match(/\bimage\(/g)||[]).length===2,'hero displays exactly two photos');
 ok(hero.indexOf('wedding.photos.heroMono')<hero.indexOf('wedding.photos.heroColor'),'B/N main image precedes colored secondary');
 ok(css.includes('z-index:2')&&css.includes('z-index:1'),'black and white in front of colored photo');
-ok(css.includes('aspect-ratio:0.73')&&css.includes('top:57%')&&css.includes('transform:rotate(-3deg)!important'),'subtle paper tilt and B/N foreground');
+ok(css.includes('width:75%')&&css.includes('width:77%')&&css.includes('aspect-ratio:0.62'),'both images visible with minimal overlap on phone');
+ok(css.includes('aspect-ratio:0.62')&&css.includes('top:57%')&&css.includes('transform:rotate(-3deg)!important'),'subtle paper tilt and B/N foreground');
 ok(!css.includes('transform:rotate(-9deg)')&&!css.includes('transform:rotate(9deg)'),'no legacy hero picture rotations');
 ok((story.match(/\bimage\(/g)||[]).length===1&&story.includes('wedding.photos.sempiterno'),'Sempiterno contains one approved photo');
 ok(!story.includes('photo-card-right'),'Sempiterno without second overlapping photo');

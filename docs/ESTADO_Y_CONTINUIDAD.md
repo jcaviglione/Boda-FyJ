@@ -1,3 +1,9 @@
+# ÚLTIMA CORRECCIÓN · 21/10/2026 · FOTOS SIN TAPARSE
+
+**Último mensaje del usuario:** la B/N en primer plano estaba TAPANDO DEMASIADO a la de color en la portada (captura Android, 19:05). Se corrigió **directamente en GitHub**: `assets/styles.css`, foto B/N 75 % a la izquierda y delante, foto a color detrás del 77 % que empieza más abajo (top 57 %) en un collage con aspecto 0.62. Se ve casi toda la foto a color sin ocultar las caras. `index.html` CSS `?v=13`. Mantener las fotos derechas. **El usuario NO programa**, siempre editar el repositorio en su nombre, jamás enviarle CSS para pegar. No generar pósters salvo que los pida.
+
+---
+
 # ESTADO ACTUAL · 21/10/2026 · portada corregida en GitHub
 
 **Último pedido FINAL:** en la **primera hoja de la MINIWEB** cambiar la jerarquía: **FOTO BLANCO Y NEGRO COMO PRINCIPAL Y DELANTE**, y foto a color AL FONDO, menor y ligeramente superpuesta. Además la de color aparecía ACOSTADA: se corrigió la orientación de sus píxeles; **ya se ven las caras derechas**. No volver a invertir ambas imágenes ni entregar pósters en lugar de cambiar la web.

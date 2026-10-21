@@ -183,8 +183,9 @@ h2 i,h3 i{font-weight:400;color:#7b896c}
 .hero-photo-collage {
   width:min(100%,410px);
   height:auto;
-  aspect-ratio:0.73;
-  margin:24px auto 19px;
+  /* Altura suficiente para ver ENTERA la foto a color detras de la B/N. */
+  aspect-ratio:0.62;
+  margin:24px auto 24px;
   position:relative;
   isolation:isolate;
   overflow:visible;
@@ -203,13 +204,14 @@ h2 i,h3 i{font-weight:400;color:#7b896c}
 .hero-photo-collage .hero-polaroid-one {
   z-index:2;
   top:0;left:2%;right:auto;bottom:auto;
-  width:78%;
+  width:75%;
   transform:rotate(-3deg)!important;
 }
 .hero-photo-collage .hero-polaroid-two {
   z-index:1;
+  /* La color asoma por la derecha y casi toda por abajo: no tapa caras. */
   top:57%;right:0;left:auto;bottom:auto;
-  width:63%;
+  width:77%;
   transform:rotate(3deg)!important;
 }
 .hero-photo-collage .hero-polaroid .hero-image {
