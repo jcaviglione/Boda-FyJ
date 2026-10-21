@@ -14,7 +14,7 @@ export const wedding = Object.freeze({
   lunch: {
     title: "El almuerzo",
     time: "14:00",
-    address: "", // Pendiente: dirección exacta del quincho
+    address: "A confirmar", // Pendiente: dirección exacta del quincho
     area: "",
     mapsQuery: ""
   },
@@ -24,7 +24,7 @@ export const wedding = Object.freeze({
     holder: "Joel Alejandro Caviglione"
   },
   // Opcional: Argentina con código de país, solo dígitos, por ej. "5493511234567".
-  rsvpWhatsapp: "",
+  rsvpWhatsapp: "5493516604351",
   rsvpDeadline: "", // Fecha aún no confirmada; no inventarla.
   albumUploadUrl: "", // URL real de WedUploader al autorizar Google Drive.
   galleryEnabled: false,
