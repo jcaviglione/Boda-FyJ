@@ -20,13 +20,15 @@ URL prevista: https://jcaviglione.github.io/Boda-FyJ/
 1. Dirección exacta del quincho (almuerzo 14:00).
 2. Confirmaciones preparadas para enviar por WhatsApp al número configurado. El invitado debe tocar Enviar en WhatsApp.
 3. Fecha límite RSVP si se decide mostrar.
-4. Conectar Google Drive a WedUploader y pegar la URL de carga en `albumUploadUrl`. **La carpeta de Drive sola no es una página para subir sin permisos**.
+4. Crear una solicitud de archivos gratuita en MEGA y pegar el enlace de carga en `albumUploadUrl`. Los invitados no requieren cuenta. Hacer una carga de prueba desde incógnito antes de imprimir el QR.
 5. Integrar las fotos editadas ya aportadas por la pareja como archivos reales en `assets/`.
 6. Vista previa WhatsApp (imagen social OG); diseño final y prueba móvil.
 7. Comprobar activación de GitHub Pages y el enlace definitivo.
 
 ### Foto/álbum
-Google Drive creado: https://drive.google.com/drive/folders/1mrS7wY6JGmPZfCkOP-VPSXiIgAGQxUM1
+Carpeta de respaldo privada en Google Drive: https://drive.google.com/drive/folders/1mrS7wY6JGmPZfCkOP-VPSXiIgAGQxUM1
+
+**Recepción de fotos:** MEGA (File Request), plan gratuito de 20 GB. El enlace aún está pendiente. No confundir enlaces públicos de compartir archivos (lectura) con enlaces de solicitud (subida). Al finalizar, descargar originales y respaldarlos en Drive.
 
 **Privacidad:** no publicar DNI, teléfonos de invitados, listado de invitados ni tokens en archivos públicos. El QR actual conduce a la sección de recuerdos de la web; el botón de subida permanece inactivo hasta asociar el proveedor.
 
