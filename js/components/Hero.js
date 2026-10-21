@@ -1,4 +1,4 @@
-import { wedding } from "../config.js";
+import { wedding } from "../config.js?v=7";
 import { image } from "../utils.js";
 
 export function Hero() {
