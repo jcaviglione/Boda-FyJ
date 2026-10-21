@@ -18,7 +18,7 @@ URL prevista: https://jcaviglione.github.io/Boda-FyJ/
 
 ## Pendientes para la versión final
 1. Dirección exacta del quincho (almuerzo 14:00).
-2. Teléfono de WhatsApp para enviar confirmaciones directamente (`rsvpWhatsapp` en config).
+2. Confirmaciones preparadas para enviar por WhatsApp al número configurado. El invitado debe tocar Enviar en WhatsApp.
 3. Fecha límite RSVP si se decide mostrar.
 4. Conectar Google Drive a WedUploader y pegar la URL de carga en `albumUploadUrl`. **La carpeta de Drive sola no es una página para subir sin permisos**.
 5. Integrar las fotos editadas ya aportadas por la pareja como archivos reales en `assets/`.
