@@ -23,12 +23,12 @@ if (story) {
   if (duo) {
     const figure = document.createElement("figure");
     figure.className = "story-duo-card";
-    figure.style.cssText = "width:min(100%,560px);margin:0 auto;border:0;box-shadow:none;transform:none;background:transparent";
+    figure.style.cssText = "width:min(100%,950px);margin:0 auto;border:0;box-shadow:none;transform:none;background:transparent";
     const picture = document.createElement("img");
     picture.src = "invitacion/sempiterno-infantil.webp";
     picture.alt = "Dos chicos vestidos de novios, con flores delicadas y la frase These two kids are getting married";
     picture.loading = "lazy";
-    picture.style.cssText = "display:block;width:100%;height:auto;object-fit:contain;border-radius:8px";
+    picture.style.cssText = "display:block;width:100%;max-width:950px;height:auto;object-fit:contain;border-radius:8px";
     figure.append(picture);
     duo.replaceWith(figure);
   }
