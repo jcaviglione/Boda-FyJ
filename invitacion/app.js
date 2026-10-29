@@ -16,32 +16,18 @@ for (const item of document.querySelectorAll(".event-card .event-time, .route-st
   }
 }
 
-// Seccion Sempiterno: lamina infantil en lugar de las dos fotos.
+// Segunda hoja editorial, sin fotografias.
 const story = document.querySelector("#nuestra-historia .photo-story-inner");
 if (story) {
-  const duo = story.querySelector(".story-duo");
-  if (duo) {
-    const figure = document.createElement("figure");
-    figure.className = "story-duo-card";
-    figure.style.cssText = "width:min(100%,950px);margin:0 auto;border:0;box-shadow:none;transform:none;background:transparent";
-    const picture = document.createElement("img");
-    picture.src = "invitacion/sempiterno-infantil.webp";
-    picture.alt = "Dos chicos vestidos de novios, con flores delicadas y la frase These two kids are getting married";
-    picture.loading = "lazy";
-    picture.style.cssText = "display:block;width:100%;max-width:950px;height:auto;object-fit:contain;border-radius:8px";
-    figure.append(picture);
-    duo.replaceWith(figure);
-  }
-  // El titulo esta integrado en la imagen. Dejar solo la definicion debajo.
-  story.querySelector(".story-word")?.remove();
-  const def = story.querySelector(".story-definition");
-  if (def) def.style.cssText = "margin:1.1rem auto 0;max-width:36ch;text-align:center";
-  const button = document.createElement("a");
-  button.href = "invitacion/regalos.html";
-  button.className = "button button-outline";
-  button.textContent = "UN PEQUEÑO DETALLE ♡";
-  button.style.cssText = "display:table;margin:2rem auto 0;padding:.85rem 1.5rem;font-size:.75rem;letter-spacing:.08em;text-decoration:none";
-  story.append(button);
+  story.innerHTML = `
+    <div class="eyebrow" style="letter-spacing:.22em;margin-bottom:1.5rem">Un poquito de nosotros</div>
+    <div aria-hidden="true" style="font-size:1.6rem;color:#879078;margin:0 auto 1.5rem">♡</div>
+    <p style="font-family:'DM Serif Display',serif;font-size:clamp(.85rem,2.5vw,1.1rem);font-style:italic;letter-spacing:.10em;line-height:1.7;text-align:center;margin:0 auto 2.2rem;max-width:28ch;color:#738063">These two kids are getting married.</p>
+    <h2 class="story-word" style="margin-bottom:1rem">Sempiterno</h2>
+    <p class="story-definition" style="max-width:36ch;margin:0 auto;text-align:center">Que durará siempre; que, habiendo tenido principio, no tendrá fin.</p>
+    <div class="story-divider" aria-hidden="true" style="margin-top:1.75rem">✧</div>
+    <a href="invitacion/regalos.html" class="button button-outline" style="display:table;margin:2rem auto 0;padding:.85rem 1.5rem;font-size:.75rem;letter-spacing:.08em;text-decoration:none">UN PEQUEÑO DETALLE ♡</a>
+  `;
 }
 
 // Intercepta el envio antes del controlador original, sin cambiar el sitio principal.
