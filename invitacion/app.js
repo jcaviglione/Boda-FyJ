@@ -16,17 +16,32 @@ for (const item of document.querySelectorAll(".event-card .event-time, .route-st
   }
 }
 
-// Enlace discreto a una pagina secundaria (sin exhibir el alias en la invitacion).
-const footer = document.querySelector(".footer");
-if (footer) {
-  const note = document.createElement("p");
-  note.style.cssText = "margin:1.5rem auto 0;font-size:.75rem;opacity:.60;text-align:center";
-  const link = document.createElement("a");
-  link.href = "invitacion/regalos.html";
-  link.textContent = "Informacion adicional";
-  link.style.cssText = "color:inherit;text-decoration:underline;text-underline-offset:3px";
-  note.append(link);
-  footer.append(note);
+// Seccion Sempiterno: lamina infantil en lugar de las dos fotos.
+const story = document.querySelector("#nuestra-historia .photo-story-inner");
+if (story) {
+  const duo = story.querySelector(".story-duo");
+  if (duo) {
+    const figure = document.createElement("figure");
+    figure.className = "story-duo-card";
+    figure.style.cssText = "width:min(100%,560px);margin:0 auto;border:0;box-shadow:none;transform:none;background:transparent";
+    const picture = document.createElement("img");
+    picture.src = "invitacion/sempiterno-infantil.webp";
+    picture.alt = "Dos chicos vestidos de novios, con flores delicadas y la frase These two kids are getting married";
+    picture.loading = "lazy";
+    picture.style.cssText = "display:block;width:100%;height:auto;object-fit:contain;border-radius:8px";
+    figure.append(picture);
+    duo.replaceWith(figure);
+  }
+  // El titulo esta integrado en la imagen. Dejar solo la definicion debajo.
+  story.querySelector(".story-word")?.remove();
+  const def = story.querySelector(".story-definition");
+  if (def) def.style.cssText = "margin:1.1rem auto 0;max-width:36ch;text-align:center";
+  const button = document.createElement("a");
+  button.href = "invitacion/regalos.html";
+  button.className = "button button-outline";
+  button.textContent = "UN PEQUEÑO DETALLE ♡";
+  button.style.cssText = "display:table;margin:2rem auto 0;padding:.85rem 1.5rem;font-size:.75rem;letter-spacing:.08em;text-decoration:none";
+  story.append(button);
 }
 
 // Intercepta el envio antes del controlador original, sin cambiar el sitio principal.
