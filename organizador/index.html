@@ -6,12 +6,12 @@
 </style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.10/dist/umd/supabase.min.js"></script></head><body><div class="wrap">
 <header><div><small>♡ NUESTRO CASAMIENTO · 27 NOV 2026</small><h1>Flor & Joel</h1><span class="tag">Organizador compartible · versión local</span></div><div style="font-size:36px">✿</div></header>
 <nav id="nav" hidden><button data-tab="inicio">Inicio</button><button data-tab="arbol">Árbol</button><button data-tab="pendientes">Pendientes</button><button data-tab="invitados">Invitados</button><button data-tab="plata">Plata</button></nav>
-<section class="card" id="authBox"><h2>Acceso privado ♡</h2><p>Flor y Joel pueden iniciar sesión con su correo. Solo los correos autorizados podrán ver el organizador.</p><div class="grid"><label class="field">Correo<input id="loginEmail" type="email" autocomplete="email"></label><label class="field">Contraseña<input id="loginPass" type="password" autocomplete="current-password"></label></div><div class="line"><button type="button" onclick="login(false)">Entrar</button><button type="button" class="secondary" onclick="login(true)">Crear mi cuenta</button></div><p id="loginMessage" class="aside">Si estás creando tu cuenta, puede ser necesario confirmar el correo.</p></section><div id="privateApp" hidden><div class="line" style="justify-content:flex-end"><span id="loggedIn" class="aside"></span><button class="ghost" onclick="logout()">Salir</button></div><div class="card" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><b style="flex:1">Agregar rápido</b><button onclick="tab='arbol';render();openNode(null)">+ Tarea</button><button onclick="tab='invitados';render();openGuest()">+ Invitado</button><button onclick="tab='plata';render();openExpense()">+ Gasto</button></div><main id="view"></main></div><footer>Los cambios se guardan en este navegador, no se sincronizan entre dispositivos. Usá Exportar/Importar para compartir una copia. No subas aquí datos que deban mantenerse privados hasta configurar acceso seguro.</footer></div>
+<section class="card" id="authBox"><h2>Acceso privado ♡</h2><p>Flor y Joel pueden iniciar sesión con su correo. Solo los correos autorizados podrán ver el organizador.</p><div class="grid"><label class="field">Correo<input id="loginEmail" type="email" autocomplete="email"></label><label class="field">Contraseña<input id="loginPass" type="password" autocomplete="current-password"></label></div><div class="line"><button type="button" onclick="login(false)">Entrar</button><button type="button" class="secondary" onclick="login(true)">Crear mi cuenta</button></div><p id="loginMessage" class="aside">Si estás creando tu cuenta, puede ser necesario confirmar el correo.</p></section><div id="privateApp" hidden><div class="line" style="justify-content:flex-end"><span id="loggedIn" class="aside"></span><button class="ghost" onclick="logout()">Salir</button></div><div class="card" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><b style="flex:1">Agregar rápido</b><button onclick="tab='arbol';render();openNode(null)">+ Tarea</button><button onclick="tab='invitados';render();openGuest()">+ Invitado</button><button onclick="tab='plata';render();openExpense()">+ Gasto</button></div><main id="view"></main></div><footer>Los datos se guardan en la nube. Solo Flor y Joel pueden consultar las finanzas.</footer></div>
 <dialog id="editor"><form id="editForm"><h2 id="dialogTitle">Editar</h2><div id="fields"></div><div class="line" style="justify-content:flex-end;margin-top:16px"><button class="secondary" type="button" id="cancel">Cancelar</button><button type="submit">Guardar</button></div></form></dialog>
 <script>
 const KEY='fyj-organizador-v1';
 const client=window.supabase.createClient('https://fnvhvptbkyohhnwbyrwv.supabase.co','sb_publishable_wjUp4njAjaU6TeSDUvlRgg_2gL31ZzV');
-let sessionReady=false, saving=false, lastRemote='';
+let sessionReady=false, saving=false, lastRemote='',lastFinance='',isCouple=false;
 async function login(register){
  const email=document.querySelector('#loginEmail').value.trim(),password=document.querySelector('#loginPass').value;
  if(!email||!password){document.querySelector('#loginMessage').textContent='Ingresá tu correo y contraseña.';return}
@@ -25,27 +25,32 @@ async function connect(){
  if(!user){document.querySelector('#loginMessage').textContent='Iniciá sesión para poder editar.';return;}
  const {data:member,error:memberErr}=await client.from('wedding_members').select('email').eq('email',user.email.toLowerCase()).maybeSingle();
  if(memberErr||!member){document.querySelector('#loginMessage').textContent='Cuenta iniciada, pero tu correo todavía no fue autorizado para esta boda.';return}
- sessionReady=true;document.querySelector('#nav').hidden=false;document.querySelector('#loggedIn').textContent=user.email;document.querySelector('#authBox').hidden=true;document.querySelector('#privateApp').hidden=false;
+ isCouple=['gli.one@gmail.com','flormoreno107@gmail.com'].includes(user.email.toLowerCase());sessionReady=true;document.querySelector('#nav').hidden=false;document.querySelector('[data-tab=plata]').hidden=!isCouple;document.querySelector('#loggedIn').textContent=user.email;document.querySelector('#authBox').hidden=true;document.querySelector('#privateApp').hidden=false;
  await refreshCloud(true);if(window.weddingPoll)clearInterval(window.weddingPoll);window.weddingPoll=setInterval(()=>{if(sessionReady&&!saving)refreshCloud(false)},5000);
 }
 async function refreshCloud(first){
- const {data:rows,error}=await client.from('wedding_state').select('data,updated_at').eq('id',1).single();
- if(error){console.warn('Sync error',error.message);return}
- const cloud=rows.data,stamp=rows.updated_at;
- if(first && (!cloud.nodes||cloud.nodes.length===0)&&data.nodes?.length){await pushCloud();render();return}
- if(stamp===lastRemote&&!first)return;
- lastRemote=stamp;data=cloud;localStorage.setItem(KEY,JSON.stringify(data));render();
+ const {data:shared,error}=await client.from('wedding_shared').select('data,updated_at').eq('id',1).single();
+ if(error){console.warn(error.message);return}
+ if(first||shared.updated_at!==lastRemote){lastRemote=shared.updated_at;data.nodes=shared.data.nodes||[];data.guests=shared.data.guests||[];}
+ if(isCouple){
+ const {data:finance,error:e}=await client.from('wedding_finance').select('data,updated_at').eq('id',1).single();
+ if(!e&&finance&&(first||finance.updated_at!==lastFinance)){lastFinance=finance.updated_at;data.expenses=finance.data.expenses||[];data.budget=finance.data.budget??1500000;}
+ }else{data.expenses=[];data.budget=0;}
+ localStorage.setItem(KEY,JSON.stringify(data));render();
 }
-let syncTimer;
 async function pushCloud(){
  if(!sessionReady)return;
- clearTimeout(syncTimer);saving=true;
- const {data:updated,error}=await client.from('wedding_state').update({data,updated_at:new Date().toISOString()}).eq('id',1).select('updated_at').single();
+ saving=true;
+ const {data:shared,error}=await client.from('wedding_shared').update({data:{nodes:data.nodes,guests:data.guests},updated_at:new Date().toISOString()}).eq('id',1).select('updated_at').single();
+ if(shared)lastRemote=shared.updated_at;
+ let err=error;
+ if(isCouple){
+ const {data:finance,error:e}=await client.from('wedding_finance').update({data:{expenses:data.expenses,budget:data.budget},updated_at:new Date().toISOString()}).eq('id',1).select('updated_at').single();
+ if(finance)lastFinance=finance.updated_at;if(e)err=e;
+ }
  saving=false;
- if(error){console.error(error);alert('No se pudo guardar en la nube. Exportá una copia de seguridad.');return}
- lastRemote=updated.updated_at;
+ if(err){console.error(err);alert('No se pudo guardar en la nube: '+err.message)}
 }
-
 const seed=[
 ['Civil',null],['Papelitos para el civil','Civil'],['Ropa','Civil'],['Flor: vestido','Ropa'],['Joel: camisa, cinto y ropa','Ropa'],['Gianno: ropa','Ropa'],['Giulia: ropa','Ropa'],['Anillos','Civil'],['Carpeta de amor','Civil'],['Taxi / auto de papá','Civil'],
 ['Almuerzo',null],['Comida','Almuerzo'],['Salado','Comida'],['Pata / pernil','Salado'],['Sándwiches','Salado'],['Dulce','Almuerzo'],['Chocotorta y postres','Dulce'],['Tartitas y masas dulces','Dulce'],['Bebidas','Almuerzo'],['Gaseosas y agua','Bebidas'],['Birra sin alcohol','Bebidas'],['Hielo','Bebidas'],['Champú / espumante','Bebidas'],
@@ -68,7 +73,7 @@ if(tab==='inicio'){const spent=data.expenses.reduce((a,x)=>a+(+x.amount||0),0);v
 if(tab==='arbol'){v.innerHTML='<div class="card">'+header('Árbol de organización','<button onclick="openNode(null)">+ Nueva rama</button>')+'<p class="aside">Expandí ramas y añadí tareas. El árbol se reorganiza automáticamente.</p><div id="tree"></div></div>';$('#tree').innerHTML=data.nodes.filter(n=>!n.parent).map(n=>nodeHtml(n,0)).join('');}
 if(tab==='pendientes'){const x=data.nodes.filter(n=>!n.done).sort((a,b)=>String(a.date||'9999').localeCompare(String(b.date||'9999')));v.innerHTML='<div class="card">'+header('Lista de pendientes','<button onclick="openNode(null)">+ Agregar</button>')+(x.map(n=>'<div class="row"><div><label><input type="checkbox" onchange="finish('+JSON.stringify(n.id)+',this.checked)"> '+esc(n.name)+'</label><div class="aside">'+esc(n.owner||'Ambos')+(n.date?' · '+esc(n.date):'')+'</div></div><button class="ghost" onclick="openNode('+JSON.stringify(n.id)+')">Editar</button></div>').join('')||'<p class="empty">¡Todo completo!</p>')+'</div>';}
 if(tab==='invitados'){const confirmed=data.guests.filter(x=>x.status==='Confirmado').length;v.innerHTML='<div class="card">'+header('Lista de invitados','<button onclick="openGuest()">+ Invitado</button>')+'<p class="muted">'+data.guests.length+' personas registradas · '+confirmed+' confirmadas</p>'+(data.guests.map(g=>'<div class="row"><div><b>'+esc(g.name)+'</b><div class="aside">'+esc(g.status)+' · '+esc(g.type)+' · '+esc(g.notes||'')+'</div></div><div><button class="ghost" onclick="openGuest('+JSON.stringify(g.id)+')">Editar</button><button class="ghost" onclick="removeGuest('+JSON.stringify(g.id)+')">×</button></div></div>').join('')||'<p class="empty">Agregá la lista de invitados acá.</p>')+'</div>';}
-if(tab==='plata'){const total=data.expenses.reduce((a,x)=>a+(+x.amount||0),0),paid=data.expenses.reduce((a,x)=>a+(+x.paid||0),0);v.innerHTML='<div class="stats"><div class="card stat"><small>Presupuesto</small><strong>'+money(data.budget)+'</strong></div><div class="card stat"><small>Costo cargado</small><strong>'+money(total)+'</strong></div><div class="card stat"><small>Pagado</small><strong>'+money(paid)+'</strong></div><div class="card stat"><small>Falta pagar</small><strong>'+money(total-paid)+'</strong></div></div><div class="card"><div class="line"><label>Presupuesto objetivo $ <input type="number" min="0" id="budget" value="'+(+data.budget||0)+'"></label><button onclick="data.budget=Number(document.querySelector(\'#budget\').value);save()">Actualizar</button></div></div><div class="card">'+header('Gastos','<button onclick="openExpense()">+ Gasto</button>')+data.expenses.map(x=>'<div class="row"><div><b>'+esc(x.name)+'</b><div class="aside">'+esc(x.category||'Otros')+' · Pagado '+money(x.paid)+'</div></div><div><b>'+money(x.amount)+'</b> <button class="ghost" onclick="openExpense('+JSON.stringify(x.id)+')">Editar</button></div></div>').join('')+'</div>';}
+if(tab==='plata' && isCouple){const total=data.expenses.reduce((a,x)=>a+(+x.amount||0),0),paid=data.expenses.reduce((a,x)=>a+(+x.paid||0),0);v.innerHTML='<div class="stats"><div class="card stat"><small>Presupuesto</small><strong>'+money(data.budget)+'</strong></div><div class="card stat"><small>Costo cargado</small><strong>'+money(total)+'</strong></div><div class="card stat"><small>Pagado</small><strong>'+money(paid)+'</strong></div><div class="card stat"><small>Falta pagar</small><strong>'+money(total-paid)+'</strong></div></div><div class="card"><div class="line"><label>Presupuesto objetivo $ <input type="number" min="0" id="budget" value="'+(+data.budget||0)+'"></label><button onclick="data.budget=Number(document.querySelector(\'#budget\').value);save()">Actualizar</button></div></div><div class="card">'+header('Gastos','<button onclick="openExpense()">+ Gasto</button>')+data.expenses.map(x=>'<div class="row"><div><b>'+esc(x.name)+'</b><div class="aside">'+esc(x.category||'Otros')+' · Pagado '+money(x.paid)+'</div></div><div><b>'+money(x.amount)+'</b> <button class="ghost" onclick="openExpense('+JSON.stringify(x.id)+')">Editar</button></div></div>').join('')+'</div>';}
 }
 function nodeHtml(n,depth){if(depth>14)return '';const kids=data.nodes.filter(x=>x.parent===n.id);return '<div class="node"><div class="node-head"><input type="checkbox" '+(n.done?'checked':'')+' onchange="finish('+JSON.stringify(n.id)+',this.checked)"><span class="node-title '+(n.done?'done':'')+'">'+esc(n.name)+'</span><div class="node-actions"><button class="ghost" title="Agregar subtarea" onclick="openNode(null,'+JSON.stringify(n.id)+')">＋</button><button class="ghost" title="Editar" onclick="openNode('+JSON.stringify(n.id)+')">✎</button><button class="ghost" title="Eliminar" onclick="removeNode('+JSON.stringify(n.id)+')">×</button></div></div>'+(kids.length?'<div class="branch">'+kids.map(x=>nodeHtml(x,depth+1)).join('')+'</div>':'')+'</div>';}
 function finish(x,val){const n=data.nodes.find(y=>y.id===x);if(n)n.done=val;save()}
