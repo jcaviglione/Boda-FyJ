@@ -3,13 +3,49 @@
 <title>Flor & Joel | Organizador</title>
 <style>
 :root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#3f4b38;background:#f6f3eb}*{box-sizing:border-box}body{margin:0}.wrap{max-width:1060px;margin:auto;padding:20px}header{display:flex;justify-content:space-between;align-items:center;gap:10px}h1{font-family:Georgia,serif;font-weight:400;font-size:34px;margin:8px 0}h2{font-family:Georgia,serif;font-weight:400}small,.muted{color:#788071}.tag{display:inline-block;padding:5px 9px;border-radius:12px;background:#e4e9dc;font-size:12px}nav{display:flex;gap:8px;overflow:auto;padding:20px 0}button,input,select{font:inherit}button{cursor:pointer;background:#687d5b;color:white;border:0;border-radius:12px;padding:10px 14px}button.secondary{background:#e7ebdf;color:#44543c}button.ghost{background:transparent;color:#556b4d;padding:5px 8px}nav button{white-space:nowrap}.card{background:#fffefa;border:1px solid #e4e3d8;border-radius:18px;padding:18px;margin:12px 0;box-shadow:0 2px 10px #56634409}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stat strong{display:block;font-size:24px}.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}.branch{border-left:2px solid #d5ddcc;margin-left:13px;padding-left:14px}.node{border:1px solid #e1e7dc;border-radius:12px;margin:8px 0;padding:10px;background:#fff}.node-head{display:flex;align-items:center;gap:8px}.node-title{flex:1;min-width:0;word-break:break-word}.node-actions{display:flex;gap:3px;flex-wrap:wrap}.done{text-decoration:line-through;opacity:.56}input:not([type=checkbox]),select{border:1px solid #cdd5c5;border-radius:10px;padding:10px;background:white;max-width:100%}.line{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:9px 0}.row{display:flex;justify-content:space-between;gap:12px;align-items:center;border-bottom:1px solid #eff0e8;padding:10px 0}.row:last-child{border:0}.tabs-hidden{display:none}.pill{font-size:12px;background:#edf0e8;border-radius:10px;padding:5px 8px}.progress{height:9px;background:#e5e9e0;border-radius:10px;overflow:hidden}.progress>div{height:100%;background:#788b65}.aside{font-size:12px;color:#727b6b}.empty{padding:24px;color:#767d70;text-align:center}footer{padding:25px 0;color:#7b806f;font-size:12px}dialog{border:none;border-radius:18px;max-width:min(94vw,500px);width:100%;padding:22px;box-shadow:0 15px 75px #0004}dialog::backdrop{background:#24311c88}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:flex;flex-direction:column;gap:5px}.field input,.field select{width:100%}@media(max-width:650px){.stats{grid-template-columns:repeat(2,1fr)}.wrap{padding:13px}.grid{grid-template-columns:1fr}.node-actions button{font-size:12px;padding:6px}}
-</style></head><body><div class="wrap">
+</style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.10/dist/umd/supabase.min.js"></script></head><body><div class="wrap">
 <header><div><small>♡ NUESTRO CASAMIENTO · 27 NOV 2026</small><h1>Flor & Joel</h1><span class="tag">Organizador compartible · versión local</span></div><div style="font-size:36px">✿</div></header>
 <nav id="nav"><button data-tab="inicio">Inicio</button><button data-tab="arbol">Árbol</button><button data-tab="pendientes">Pendientes</button><button data-tab="invitados">Invitados</button><button data-tab="plata">Plata</button></nav>
-<main id="view"></main><footer>Los cambios se guardan en este navegador, no se sincronizan entre dispositivos. Usá Exportar/Importar para compartir una copia. No subas aquí datos que deban mantenerse privados hasta configurar acceso seguro.</footer></div>
+<section class="card" id="authBox"><h2>Acceso privado ♡</h2><p>Flor y Joel pueden iniciar sesión con su correo. Solo los correos autorizados podrán ver el organizador.</p><div class="grid"><label class="field">Correo<input id="loginEmail" type="email" autocomplete="email"></label><label class="field">Contraseña<input id="loginPass" type="password" autocomplete="current-password"></label></div><div class="line"><button type="button" onclick="login(false)">Entrar</button><button type="button" class="secondary" onclick="login(true)">Crear mi cuenta</button></div><p id="loginMessage" class="aside">Si estás creando tu cuenta, puede ser necesario confirmar el correo.</p></section><div id="privateApp" hidden><div class="line" style="justify-content:flex-end"><span id="loggedIn" class="aside"></span><button class="ghost" onclick="logout()">Salir</button></div><main id="view"></main></div><footer>Los cambios se guardan en este navegador, no se sincronizan entre dispositivos. Usá Exportar/Importar para compartir una copia. No subas aquí datos que deban mantenerse privados hasta configurar acceso seguro.</footer></div>
 <dialog id="editor"><form id="editForm"><h2 id="dialogTitle">Editar</h2><div id="fields"></div><div class="line" style="justify-content:flex-end;margin-top:16px"><button class="secondary" type="button" id="cancel">Cancelar</button><button type="submit">Guardar</button></div></form></dialog>
 <script>
 const KEY='fyj-organizador-v1';
+const client=window.supabase.createClient('https://fnvhvptbkyohhnwbyrwv.supabase.co','sb_publishable_wjUp4njAjaU6TeSDUvlRgg_2gL31ZzV');
+let sessionReady=false, saving=false, lastRemote='';
+async function login(register){
+ const email=document.querySelector('#loginEmail').value.trim(),password=document.querySelector('#loginPass').value;
+ if(!email||!password){document.querySelector('#loginMessage').textContent='Ingresá tu correo y contraseña.';return}
+ const r=register?await client.auth.signUp({email,password}):await client.auth.signInWithPassword({email,password});
+ document.querySelector('#loginMessage').textContent=r.error?r.error.message:(register?'Cuenta solicitada. Revisá tu correo para confirmarla.':'Entrando...');
+ if(!r.error&&!register)await connect();
+}
+async function logout(){sessionReady=false;await client.auth.signOut();document.querySelector('#privateApp').hidden=true;document.querySelector('#authBox').hidden=false;}
+async function connect(){
+ const {data:{user}}=await client.auth.getUser();
+ if(!user)return;
+ const {data:member,error:memberErr}=await client.from('wedding_members').select('email').eq('email',user.email.toLowerCase()).maybeSingle();
+ if(memberErr||!member){document.querySelector('#loginMessage').textContent='Cuenta iniciada, pero tu correo todavía no fue autorizado para esta boda.';return}
+ sessionReady=true;document.querySelector('#loggedIn').textContent=user.email;document.querySelector('#authBox').hidden=true;document.querySelector('#privateApp').hidden=false;
+ await refreshCloud(true);setInterval(()=>{if(sessionReady&&!saving)refreshCloud(false)},4000);
+}
+async function refreshCloud(first){
+ const {data:rows,error}=await client.from('wedding_state').select('data,updated_at').eq('id',1).single();
+ if(error){console.warn('Sync error',error.message);return}
+ const cloud=rows.data,stamp=rows.updated_at;
+ if(first && (!cloud.nodes||cloud.nodes.length===0)&&data.nodes?.length){await pushCloud();return}
+ if(stamp===lastRemote&&!first)return;
+ lastRemote=stamp;data=cloud;localStorage.setItem(KEY,JSON.stringify(data));render();
+}
+let syncTimer;
+async function pushCloud(){
+ if(!sessionReady)return;
+ clearTimeout(syncTimer);saving=true;
+ const {data:updated,error}=await client.from('wedding_state').update({data,updated_at:new Date().toISOString()}).eq('id',1).select('updated_at').single();
+ saving=false;
+ if(error){console.error(error);alert('No se pudo guardar en la nube. Exportá una copia de seguridad.');return}
+ lastRemote=updated.updated_at;
+}
+
 const seed=[
 ['Civil',null],['Papelitos para el civil','Civil'],['Ropa','Civil'],['Flor: vestido','Ropa'],['Joel: camisa, cinto y ropa','Ropa'],['Gianno: ropa','Ropa'],['Giulia: ropa','Ropa'],['Anillos','Civil'],['Carpeta de amor','Civil'],['Taxi / auto de papá','Civil'],
 ['Almuerzo',null],['Comida','Almuerzo'],['Salado','Comida'],['Pata / pernil','Salado'],['Sándwiches','Salado'],['Dulce','Almuerzo'],['Chocotorta y postres','Dulce'],['Tartitas y masas dulces','Dulce'],['Bebidas','Almuerzo'],['Gaseosas y agua','Bebidas'],['Birra sin alcohol','Bebidas'],['Hielo','Bebidas'],['Champú / espumante','Bebidas'],
@@ -20,7 +56,7 @@ function makeSeed(){const nodes=[];let counter=0;const map={};for(const [name,pa
 let data;try{data=JSON.parse(localStorage.getItem(KEY))||makeSeed()}catch(e){data=makeSeed()}
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const money=n=>new Intl.NumberFormat('es-AR',{style:'currency',currency:'ARS',maximumFractionDigits:0}).format(Number(n)||0);
-const save=()=>{localStorage.setItem(KEY,JSON.stringify(data));render()};
+const save=()=>{localStorage.setItem(KEY,JSON.stringify(data));render();if(sessionReady)pushCloud()};
 const id=()=>crypto.randomUUID();
 let tab='inicio';
 const $=s=>document.querySelector(s);
@@ -45,5 +81,5 @@ function removeGuest(x){if(confirm('¿Eliminar invitado?')){data.guests=data.gue
 function openExpense(eid){const x=data.expenses.find(y=>y.id===eid)||{name:'',category:'Otros',amount:0,paid:0};openForm('Gasto',field('name','Concepto',x.name)+field('category','Categoría',x.category)+'<div class="grid">'+field('amount','Costo total $',x.amount,'number')+field('paid','Ya pagado $',x.paid,'number')+'</div>',f=>{const v={name:String(f.get('name')).trim(),category:f.get('category'),amount:Math.max(0,Number(f.get('amount'))||0),paid:Math.max(0,Number(f.get('paid'))||0)};if(!v.name)return;if(eid)Object.assign(x,v);else data.expenses.push({id:id(),...v});});}
 function download(){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='flor-joel-organizador.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1500)}
 document.addEventListener('change',async e=>{if(e.target.id!=='import')return;try{const parsed=JSON.parse(await e.target.files[0].text());if(!Array.isArray(parsed.nodes)||!Array.isArray(parsed.guests)||!Array.isArray(parsed.expenses))throw Error('Formato inválido');if(confirm('Esto reemplaza los datos de este navegador. ¿Continuar?')){data=parsed;save()}}catch(err){alert('No se pudo importar: '+err.message)}});
-$('#cancel').onclick=()=>$('#editor').close();document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{tab=b.dataset.tab;render()});render();
+$('#cancel').onclick=()=>$('#editor').close();document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{tab=b.dataset.tab;render()});render();client.auth.onAuthStateChange((event)=>{if(event==='SIGNED_OUT'){sessionReady=false;document.querySelector('#privateApp').hidden=true;document.querySelector('#authBox').hidden=false}});client.auth.getSession().then(({data:{session}})=>{if(session)connect()});
 </script></body></html>
