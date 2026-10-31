@@ -25,7 +25,7 @@ async function connect(){
  if(!user){document.querySelector('#loginMessage').textContent='Iniciá sesión para poder editar.';return;}
  const {data:member,error:memberErr}=await client.from('wedding_members').select('email').eq('email',user.email.toLowerCase()).maybeSingle();
  if(memberErr||!member){document.querySelector('#loginMessage').textContent='Cuenta iniciada, pero tu correo todavía no fue autorizado para esta boda.';return}
- isCouple=['gli.one@gmail.com','flormoreno107@gmail.com'].includes(user.email.toLowerCase());sessionReady=true;document.querySelector('#nav').hidden=false;document.querySelector('[data-tab=plata]').hidden=!isCouple;document.querySelector('#loggedIn').textContent=user.email;document.querySelector('#authBox').hidden=true;document.querySelector('#privateApp').hidden=false;
+ isCouple=['glione.bim@gmail.com','flormoreno107@gmail.com'].includes(user.email.toLowerCase());sessionReady=true;document.querySelector('#nav').hidden=false;document.querySelector('[data-tab=plata]').hidden=!isCouple;document.querySelector('#loggedIn').textContent=user.email;document.querySelector('#authBox').hidden=true;document.querySelector('#privateApp').hidden=false;
  await refreshCloud(true);if(window.weddingPoll)clearInterval(window.weddingPoll);window.weddingPoll=setInterval(()=>{if(sessionReady&&!saving)refreshCloud(false)},5000);
 }
 async function refreshCloud(first){
