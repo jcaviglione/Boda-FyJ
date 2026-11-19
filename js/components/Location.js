@@ -1,10 +1,11 @@
-import { wedding } from "../config.js?v=14";
+import { wedding } from "../config.js?v=17";
 import { escapeHtml, mapsUrl } from "../utils.js";
 
 export function Location() {
   const c = wedding.ceremony;
   const l = wedding.lunch;
   const ready = Boolean(l.mapsQuery);
+  const mapEmbed = "https://www.google.com/maps?q=" + encodeURIComponent(l.mapsQuery) + "&output=embed";
   const lunchText = ready ? escapeHtml(l.address) + (l.area ? ", " + escapeHtml(l.area) : "") : "Dirección a confirmar";
 
   return '<section class="location section-pad" id="mapa"><div class="location-inner" data-reveal>' +
@@ -38,11 +39,18 @@ export function Location() {
       '<div class="route-stop"><span class="route-number">01</span><span class="eyebrow">11:00 hs</span>' +
         '<h3>Registro Civil</h3><p>' + escapeHtml(c.address) + '<br>' + escapeHtml(c.area) + '</p></div>' +
       '<div class="route-connector" aria-hidden="true">❦</div>' +
-      '<div class="route-stop"><span class="route-number">02</span><span class="eyebrow">14:00 hs</span>' +
+      '<div class="route-stop"><span class="route-number">02</span><span class="eyebrow">' + escapeHtml(l.time) + ' hs</span>' +
         '<h3>Almuerzo</h3><p>' + lunchText + '</p></div>' +
     '</div>' +
-    '<p class="route-footnote">Recorrido ilustrativo. La ubicación exacta del almuerzo se agregará cuando esté confirmada.</p>' +
+    '<p class="route-footnote">Recorrido ilustrativo entre el Registro Civil y el almuerzo.</p>' +
     '</div>' +
+    (ready ? '<div class="venue-map-card">' +
+      '<div class="eyebrow">Ubicación del almuerzo</div>' +
+      '<h3>Cannes 4040</h3>' +
+      '<p>Ciudad de Córdoba · 13:00 hs</p>' +
+      '<div class="venue-map-frame"><iframe title="Mapa del almuerzo en Cannes 4040, Córdoba" src="' + escapeHtml(mapEmbed) + '" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>' +
+      '<a class="button button-dark venue-map-button" href="' + mapsUrl(l.mapsQuery) + '" target="_blank" rel="noopener noreferrer">ABRIR EN GOOGLE MAPS ↗</a>' +
+      '</div>' : '') +
     '<div class="route-actions"><a class="button button-dark" href="' + mapsUrl(c.mapsQuery) + '" target="_blank" rel="noopener noreferrer">MAPA DEL CIVIL ↗</a>' +
       (ready ? '<a class="button button-outline" href="' + mapsUrl(l.mapsQuery) + '" target="_blank" rel="noopener noreferrer">MAPA DEL ALMUERZO ↗</a>' :
       '<span class="button button-outline is-pending">MAPA DEL ALMUERZO PRÓXIMAMENTE</span>') +
