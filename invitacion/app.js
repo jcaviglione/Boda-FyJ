@@ -1,20 +1,10 @@
 // Variante independiente: utiliza el diseno original, sin editarlo.
-import "../js/main.js?v=16";
+import "../js/main.js?v=18";
 
 // Quitar regalos de la navegacion principal.
 document.querySelector("#regalos")?.remove();
 
-// Actualizar ambos horarios visibles del almuerzo.
-for (const item of document.querySelectorAll(".event-card .event-time, .route-stop .eyebrow")) {
-  const walker = document.createTreeWalker(item, NodeFilter.SHOW_TEXT);
-  let node;
-  while ((node = walker.nextNode())) {
-    if (node.textContent.includes("14:00")) {
-      node.textContent = node.textContent.replace("14:00", "13:30");
-      break;
-    }
-  }
-}
+// El horario se toma ahora directamente de la configuracion compartida.
 
 // Segunda hoja editorial, sin fotografias.
 const story = document.querySelector("#nuestra-historia .photo-story-inner");
