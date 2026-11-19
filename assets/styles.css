@@ -333,3 +333,10 @@ h2 i,h3 i{font-weight:400;color:#7b896c}
 .venue-map-frame iframe{display:block;width:100%;height:100%;border:0}
 .venue-map-button{margin-top:20px;width:100%;max-width:320px}
 @media(max-width:400px){.venue-map-card{padding:20px 12px}.venue-map-frame{height:290px}}
+
+/* Fachada de ingreso: una referencia discreta debajo del mapa. */
+.venue-entry{max-width:550px;margin:16px auto 26px;padding:12px 12px 18px;background:#fffdf8;border:1px solid rgba(112,117,91,.18);border-radius:23px;box-shadow:0 10px 26px rgba(75,75,54,.055);overflow:hidden}
+.venue-entry img{display:block;width:100%;height:auto;aspect-ratio:4 / 3;object-fit:cover;border-radius:14px}
+.venue-entry figcaption{display:grid;gap:6px;padding:17px 6px 0;color:var(--muted);font:italic 13px/1.6 "DM Serif Display",serif}
+.venue-entry figcaption .eyebrow{font-style:normal;font-family:"DM Sans",sans-serif;font-size:9px;letter-spacing:.18em}
+@media(max-width:400px){.venue-entry{padding:9px 9px 17px;border-radius:19px}}

@@ -1,5 +1,5 @@
 // Variante independiente: utiliza el diseno original, sin editarlo.
-import "../js/main.js?v=18";
+import "../js/main.js?v=19";
 
 // Quitar regalos de la navegacion principal.
 document.querySelector("#regalos")?.remove();

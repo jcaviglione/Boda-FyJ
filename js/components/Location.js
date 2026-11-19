@@ -50,7 +50,11 @@ export function Location() {
       '<p>Ciudad de Córdoba · 13:00 hs</p>' +
       '<div class="venue-map-frame"><iframe title="Mapa del almuerzo en Cannes 4040, Córdoba" src="' + escapeHtml(mapEmbed) + '" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>' +
       '<a class="button button-dark venue-map-button" href="' + mapsUrl(l.mapsQuery) + '" target="_blank" rel="noopener noreferrer">ABRIR EN GOOGLE MAPS ↗</a>' +
-      '</div>' : '') +
+      '</div>' +
+      '<figure class="venue-entry">' +
+        '<img src="assets/entrada-cannes.webp" alt="Portón gris y fachada de ladrillo con jardín, entrada al almuerzo por calle Cannes 4040" width="1120" height="840" loading="lazy" decoding="async">' +
+        '<figcaption><span class="eyebrow">Para reconocer el lugar</span><span>Esta es la entrada por calle Cannes.</span></figcaption>' +
+      '</figure>' : '') +
     '<div class="route-actions"><a class="button button-dark" href="' + mapsUrl(c.mapsQuery) + '" target="_blank" rel="noopener noreferrer">MAPA DEL CIVIL ↗</a>' +
       (ready ? '<a class="button button-outline" href="' + mapsUrl(l.mapsQuery) + '" target="_blank" rel="noopener noreferrer">MAPA DEL ALMUERZO ↗</a>' :
       '<span class="button button-outline is-pending">MAPA DEL ALMUERZO PRÓXIMAMENTE</span>') +
