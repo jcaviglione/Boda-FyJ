@@ -1,9 +1,9 @@
-import { wedding } from "./config.js?v=17";
+import { wedding } from "./config.js?v=20";
 import { Hero } from "./components/Hero.js?v=14";
 import { Intro } from "./components/Intro.js?v=15";
 import { PhotoStory } from "./components/PhotoStory.js?v=14";
-import { Events } from "./components/Events.js?v=18";
-import { Location } from "./components/Location.js?v=19";
+import { Events } from "./components/Events.js?v=20";
+import { Location } from "./components/Location.js?v=20";
 import { Attire } from "./components/Attire.js?v=16";
 import { Gifts } from "./components/Gifts.js?v=14";
 import { RSVP } from "./components/RSVP.js?v=15";

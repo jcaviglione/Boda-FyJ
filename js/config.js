@@ -1,4 +1,6 @@
 // Datos editables de Flor & Joel. No incluir documentos de identidad ni claves aquí.
+// La invitacion alternativa conserva sus datos originales; los cambios recientes son solo para la pagina principal.
+const isInvitationVariant = /(?:^|\/)invitacion(?:\/|\/index\.html)?$/.test(window.location.pathname);
 export const wedding = Object.freeze({
   couple: "Flor & Joel",
   date: "2026-11-27T11:00:00-03:00",
@@ -11,7 +13,13 @@ export const wedding = Object.freeze({
     area: "Nueva Córdoba · Córdoba",
     mapsQuery: "Chacabuco 737, Nueva Córdoba, Córdoba, Argentina"
   },
-  lunch: {
+  lunch: isInvitationVariant ? {
+    title: "El almuerzo",
+    time: "13:30",
+    address: "A confirmar",
+    area: "",
+    mapsQuery: ""
+  } : {
     title: "El almuerzo",
     time: "13:00",
     address: "Cannes 4040",

@@ -1,4 +1,4 @@
-import { wedding } from "../config.js?v=17";
+import { wedding } from "../config.js?v=20";
 import { escapeHtml, mapsUrl } from "../utils.js";
 
 export function Location() {
@@ -42,7 +42,7 @@ export function Location() {
       '<div class="route-stop"><span class="route-number">02</span><span class="eyebrow">' + escapeHtml(l.time) + ' hs</span>' +
         '<h3>Almuerzo</h3><p>' + lunchText + '</p></div>' +
     '</div>' +
-    '<p class="route-footnote">Recorrido ilustrativo entre el Registro Civil y el almuerzo.</p>' +
+    '<p class="route-footnote">' + (ready ? 'Recorrido ilustrativo entre el Registro Civil y el almuerzo.' : 'Recorrido ilustrativo. La ubicación exacta del almuerzo se agregará cuando esté confirmada.') + '</p>' +
     '</div>' +
     (ready ? '<div class="venue-map-card">' +
       '<div class="eyebrow">Ubicación del almuerzo</div>' +

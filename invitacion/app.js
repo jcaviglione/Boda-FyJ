@@ -1,10 +1,10 @@
 // Variante independiente: utiliza el diseno original, sin editarlo.
-import "../js/main.js?v=19";
+import "../js/main.js?v=20";
 
 // Quitar regalos de la navegacion principal.
 document.querySelector("#regalos")?.remove();
 
-// El horario se toma ahora directamente de la configuracion compartida.
+// Esta variante mantiene el horario original de 13:30 y la ubicacion sin confirmar.
 
 // Segunda hoja editorial, sin fotografias.
 const story = document.querySelector("#nuestra-historia .photo-story-inner");
