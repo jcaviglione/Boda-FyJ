@@ -13,10 +13,10 @@ export const wedding = Object.freeze({
   },
   lunch: {
     title: "El almuerzo",
-    time: "14:00",
-    address: "A confirmar", // Pendiente: dirección exacta del quincho
-    area: "",
-    mapsQuery: ""
+    time: "13:00",
+    address: "Cannes 4040",
+    area: "Ciudad de Córdoba · Córdoba",
+    mapsQuery: "Cannes 4040, Córdoba, Argentina"
   },
   gift: {
     alias: "BODA.FYJ.2026",
